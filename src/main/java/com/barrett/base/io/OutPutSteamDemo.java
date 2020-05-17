@@ -1,4 +1,4 @@
-package com.barrett.io;
+package com.barrett.base.io;
 
 import java.io.File;
 import java.io.FileOutputStream;

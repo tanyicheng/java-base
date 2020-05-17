@@ -1,4 +1,4 @@
-package com.barrett.vessel;
+package com.barrett.base.vessel;
 
 public class MyNode<K,V> {
     int hash;
