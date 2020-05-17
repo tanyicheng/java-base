@@ -14,7 +14,7 @@ import java.io.Reader;
  *
  * @Author created by barrett in 2020/5/14 23:05
  */
-public class ReadDemo {
+public class ReaderDemo {
 
     public static void main(String[] args) {
         test3();

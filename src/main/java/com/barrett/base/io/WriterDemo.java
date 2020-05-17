@@ -13,7 +13,7 @@ import java.io.Writer;
  * 4、释放资源
  * @Author created by barrett in 2020/5/15 22:24
  */
-public class WriteDemo {
+public class WriterDemo {
     public static void main(String[] args) {
         test1();
     }

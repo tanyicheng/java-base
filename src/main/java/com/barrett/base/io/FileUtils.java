@@ -10,8 +10,8 @@ public class FileUtils {
 
     public static void main(String[] args) {
         try {
-            InputStream is = new FileInputStream("src/main/resources/file/dest.txt");
-            OutputStream os = new FileOutputStream("src/main/resources/file/dest-2.txt");
+            InputStream is = new BufferedInputStream(new FileInputStream("src/main/resources/file/dest.txt"));
+            OutputStream os = new BufferedOutputStream(new FileOutputStream("src/main/resources/file/dest-2.txt"));
             copy(is,os);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
