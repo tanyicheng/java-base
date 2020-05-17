@@ -46,7 +46,7 @@ public class CopyDemo {
         File url = new File("io.txt");
         File dest = new File("io-copy.txt");
 
-        //1.7引入此写法，会自动关闭流
+        //1.7引入此写法，会自动关闭流 try-with-resource
         try (
                 InputStream is = new FileInputStream(url);
                 FileOutputStream os = new FileOutputStream(dest);
