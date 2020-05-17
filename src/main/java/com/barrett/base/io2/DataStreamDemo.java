@@ -32,7 +32,7 @@ public class DataStreamDemo {
 
         //读取
         DataInputStream dis = new DataInputStream(new ByteArrayInputStream(bytes));
-        //TODO 注意；取数的顺序要一致
+//        TODO 注意；取数的顺序要一致
         final String s = dis.readUTF();
         final char c = dis.readChar();
         final double v = dis.readDouble();
