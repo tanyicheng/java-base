@@ -1,4 +1,4 @@
-package com.barrett.base.tcp;
+package com.barrett.base.net.tcp;
 
 import java.io.*;
 import java.net.InetAddress;
