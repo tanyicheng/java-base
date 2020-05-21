@@ -23,7 +23,7 @@ public class ByteArrayTest {
      *
      * @Author created by barrett in 2020/5/16 14:29
      */
-    static byte[] fileToByteArray(String filePath) {
+    public static byte[] fileToByteArray(String filePath) {
         File file = new File(filePath);
 
         InputStream is = null;
@@ -38,7 +38,7 @@ public class ByteArrayTest {
             }
             os.flush();
 
-            System.out.println(os.size());
+            System.out.println("文件大小：" + os.size() / 1024 + "kb");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -61,12 +61,12 @@ public class ByteArrayTest {
      *
      * @Author created by barrett in 2020/5/16 14:30
      */
-    static void byteArrayToFile(byte[] src, String filePath) {
+    public static void byteArrayToFile(byte[] src, String filePath) {
 
         //创建源
         File file = new File(filePath);
         //选择流
-        InputStream is=null;
+        InputStream is = null;
 
         try {
             is = new ByteArrayInputStream(src);

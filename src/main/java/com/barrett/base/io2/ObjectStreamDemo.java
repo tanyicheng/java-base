@@ -7,6 +7,7 @@ import java.io.*;
 /**
  * 对象流：
  * 不是所有的对象都可以 Serializable
+ *
  * @Author created by barrett in 2020/5/17 16:40
  */
 public class ObjectStreamDemo {
@@ -23,7 +24,7 @@ public class ObjectStreamDemo {
         dos.writeObject("从入门到放弃");
         dos.writeObject(3);
         //对象
-        dos.writeObject(new Employee("马云",50));
+        dos.writeObject(new Employee("马云", 50));
 
 
         dos.flush();
@@ -33,17 +34,17 @@ public class ObjectStreamDemo {
         ObjectInputStream dis = new ObjectInputStream(new ByteArrayInputStream(bytes));
         //TODO 注意；取数的顺序要一致
         final Object s = dis.readObject();
-        if(s instanceof String){
-            System.out.println((String)s);
+        if (s instanceof String) {
+            System.out.println((String) s);
         }
         final Object v = dis.readObject();
-        if(v instanceof Double)
-            System.out.println((Double)v);
+        if (v instanceof Double)
+            System.out.println((Double) v);
 
-        Object emp =  dis.readObject();
-        if(emp instanceof Employee){
+        Object emp = dis.readObject();
+        if (emp instanceof Employee) {
             Employee e = (Employee) emp;
-            System.out.println(e.getName()+"  "+e.getAge());
+            System.out.println(e.getName() + "  " + e.getAge());
         }
 
     }
@@ -56,7 +57,7 @@ public class ObjectStreamDemo {
         dos.writeObject("从入门到放弃");
         dos.writeObject(3);
         //对象
-        dos.writeObject(new Employee("马云",50));
+        dos.writeObject(new Employee("马云", 50));
 
         dos.flush();
         dos.close();
@@ -64,25 +65,27 @@ public class ObjectStreamDemo {
         //读取 - 反序列化
         ObjectInputStream dis = new ObjectInputStream(new FileInputStream("obj.ser"));
         //TODO 注意；取数的顺序要一致
-        final Object s = dis.readObject();
-        if(s instanceof String){
-            System.out.println((String)s);
-        }
-        final Object v = dis.readObject();
-        if(v instanceof Double)
-            System.out.println((Double)v);
+        Object s = dis.readObject();
+        Object v = dis.readObject();
+        Object emp = dis.readObject();
 
-        Object emp =  dis.readObject();
-        if(emp instanceof Employee){
+        if (s instanceof String) {
+            System.out.println((String) s);
+        }
+        if (v instanceof Double) {
+            System.out.println((Double) v);
+        }
+
+        if (emp instanceof Employee) {
             Employee e = (Employee) emp;
-            System.out.println(e.getName()+"  "+e.getAge());
+            System.out.println(e.getName() + "  " + e.getAge());
         }
         dis.close();
 
     }
 }
 
-class Employee implements Serializable{
+class Employee implements Serializable {
     private transient String name;//todo 此数据不会序列化
     private int age;
 
