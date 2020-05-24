@@ -20,7 +20,8 @@ public class DecoratorDemo {
         Drink sugar= new Sugar(milk);
         System.out.println(sugar.desc()+"   价格："+sugar.cost());
 
-
+        final Maishi maishi = new Maishi(milk);
+        System.out.println(maishi.desc()+"   价格："+maishi.cost());
 
 
     }
@@ -96,5 +97,20 @@ class Sugar extends Decorator{
 
     public String desc() {
         return super.desc()+"加入白沙糖";
+    }
+}
+
+class Maishi extends Decorator{
+
+    public Maishi(Drink drink) {
+        super(drink);
+    }
+
+    public double cost() {
+        return super.cost()+10;
+    }
+
+    public String desc() {
+        return super.desc()+"加入猫屎";
     }
 }

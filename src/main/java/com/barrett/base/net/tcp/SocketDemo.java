@@ -27,6 +27,10 @@ public class SocketDemo {
         }
     }
 
+    /**
+     * 控制台输入
+     * @Author created by barrett in 2020/5/24 14:28
+     */
     public static void connect(Socket socket) {
         InputStream in = System.in;
         BufferedReader input = new BufferedReader(new InputStreamReader(in));
