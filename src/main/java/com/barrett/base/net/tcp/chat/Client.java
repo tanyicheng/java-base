@@ -1,0 +1,46 @@
+package com.barrett.base.net.tcp.chat;
+
+import java.io.*;
+import java.net.Socket;
+
+/**
+ * 客户端
+ *
+ * @Author created by barrett in 2020/5/26 22:07
+ */
+public class Client {
+
+    public static void main(String[] args) {
+        new Client().client();
+    }
+
+    public void client() {
+        System.out.println("---客户端启动---");
+        Socket socket;
+        try {
+            //建立连接
+            socket = new Socket("localhost", 8888);
+            //获取消息
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String msg = reader.readLine();
+            //发送消息
+            DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+            dos.writeUTF(msg);
+            dos.flush();
+
+            //接收消息
+            DataInputStream dis = new DataInputStream(socket.getInputStream());
+            String data = dis.readUTF();
+            System.out.println("接收服务端消息" + data);
+
+            //释放资源
+            dis.close();
+            dos.close();
+            socket.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+}
