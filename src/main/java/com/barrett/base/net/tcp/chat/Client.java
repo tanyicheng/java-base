@@ -20,19 +20,24 @@ public class Client {
         try {
             //建立连接
             socket = new Socket("localhost", 8888);
-            //获取消息
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            String msg = reader.readLine();
+
             //发送消息
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-            dos.writeUTF(msg);
-            dos.flush();
-
-            //接收消息
             DataInputStream dis = new DataInputStream(socket.getInputStream());
-            String data = dis.readUTF();
-            System.out.println("接收服务端消息" + data);
 
+            boolean flag = true;
+            //加入循环，收发多次
+            while (flag) {
+                //获取消息
+                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+                String msg = reader.readLine();
+                dos.writeUTF(msg);
+                dos.flush();
+                //接收消息
+                String data = dis.readUTF();
+                System.out.println("接收服务端消息" + data);
+
+            }
             //释放资源
             dis.close();
             dos.close();
