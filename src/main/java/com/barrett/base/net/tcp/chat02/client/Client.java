@@ -17,7 +17,7 @@ public class Client {
 
     public void client() {
         System.out.println("---客户端启动---");
-         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("请输入用户名：");
         Socket socket;
         try {
@@ -25,7 +25,7 @@ public class Client {
             socket = new Socket("localhost", 8888);
             String name = reader.readLine();
             //发送消息
-            new Thread(new Send(socket,name)).start();
+            new Thread(new Send(socket, name)).start();
             //接收消息
             new Thread(new Receive(socket)).start();
 

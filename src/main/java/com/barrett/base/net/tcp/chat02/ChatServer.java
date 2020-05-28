@@ -17,7 +17,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class ChatServer {
 
-    //增加容器，实现群聊
+    //增加容器，实现群聊；推荐这个容器，
+    // 因为在多线程环境下，遍历中添加、移除，会导致数据不一致而报错，使用此容器会copy一份进行遍历，不影响添加、移除
     private static CopyOnWriteArrayList<Channel> allList = new CopyOnWriteArrayList<>();
 
     public static void main(String[] args) {
@@ -115,20 +116,37 @@ public class ChatServer {
 
         /**
          * 获取自己的消息发给其他人
+         * 或私聊 规定格式  @xxx:
          *
          * @Author created by barrett in 2020/5/27 22:31
          */
         private void sendOthers(String msg, boolean sys) {
-            for (Channel other : allList) {
-                //不能发送给自己
-                if (other == this) {
-                    continue;
-                } else {
-                    //系统消息
-                    if (sys) {
-                        other.send("系统消息："+msg);
+            boolean privateChat = msg.startsWith("@");
+            //私聊
+            if (privateChat) {
+                int idx = msg.indexOf(":");
+                String tagName = msg.substring(1, idx);
+                msg = msg.substring(idx + 1);
+                for (Channel other : allList) {
+                    //私聊给目标
+                    if (tagName.equals(other.name)) {
+                        other.send(this.name+" 悄悄对你说：" + msg);
+                        break;
+                    }
+                }
+
+            } else {
+                for (Channel other : allList) {
+                    //不能发送给自己
+                    if (other == this) {
+                        continue;
                     } else {
-                        other.send("【" + this.name + "】对所有人说：" + msg);
+                        //系统消息
+                        if (sys) {
+                            other.send("系统消息：" + msg);
+                        } else {
+                            other.send("【" + this.name + "】对所有人说：" + msg);
+                        }
                     }
                 }
             }
@@ -138,6 +156,9 @@ public class ChatServer {
         //释放消息
         private void release() {
             IOUtils.close(dos, dis, socket);
+            //有用户退出
+            allList.remove(this);
+            sendOthers("【" + this.name + "】离线了！", true);
         }
 
     }
