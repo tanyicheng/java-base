@@ -1,5 +1,7 @@
 package com.barrett.base.thread;
 
+import org.apache.commons.io.FileUtils;
+
 /**
  * 多线程
  * @Author created by barrett in 2020/5/29 20:33
