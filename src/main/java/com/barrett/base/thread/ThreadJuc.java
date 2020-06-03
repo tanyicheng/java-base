@@ -8,6 +8,10 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.concurrent.*;
 
+/**
+ * 实现多线程第三种方式
+ * @Author created by barrett in 2020/6/3 16:21
+ */
 public class ThreadJuc implements Callable<Boolean> {
     private String url;
     private String name;
