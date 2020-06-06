@@ -9,7 +9,7 @@ import java.util.concurrent.TransferQueue;
  *
  * @Author created by barrett in 2020/6/2 22:09
  */
-public class SyncThread3 {
+public class SyncThreadBank {
 
     public static void main(String[] args) throws InterruptedException {
         Account account = new Account("彩票中奖金额", 100);
@@ -21,16 +21,6 @@ public class SyncThread3 {
     }
 
 
-}
-
-class Account {
-    public String name;
-    public int money;
-
-    public Account(String name, int money) {
-        this.name = name;
-        this.money = money;
-    }
 }
 
 class Drawing extends Thread {

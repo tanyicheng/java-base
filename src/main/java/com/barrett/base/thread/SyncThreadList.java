@@ -7,7 +7,7 @@ import java.util.List;
  * 多线程下给容器添加数据时，不能锁方法，要锁具体对象 list
  * @Author created by barrett in 2020/6/2 22:09
  */
-public class SyncThread2 {
+public class SyncThreadList {
 
     public static void main(String[] args) throws InterruptedException {
         List<String> list=new ArrayList<>();
