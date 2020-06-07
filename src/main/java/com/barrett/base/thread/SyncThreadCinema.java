@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 银行取钱
+ * 电影院买票（座次）
  *
  * @Author created by barrett in 2020/6/2 22:09
  */
@@ -24,7 +24,7 @@ public class SyncThreadCinema {
         seats1.add(1);
         seats1.add(2);
         List<Integer> seats2 = new ArrayList<>();
-        seats2.add(7);
+        seats2.add(1);
         seats2.add(4);
 
 
@@ -70,6 +70,7 @@ class Cinema {
 
     //购票
     public boolean bookTickets(List<Integer> seats) {
+        //TODO 加锁
         synchronized (vaildSeat) {
             System.out.println("剩余票数：" + vaildSeat);
             List<Integer> copy = new ArrayList<>();
