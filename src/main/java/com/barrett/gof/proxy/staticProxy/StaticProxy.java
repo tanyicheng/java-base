@@ -1,4 +1,4 @@
-package com.barrett.gof.staticProxy;
+package com.barrett.gof.proxy.staticProxy;
 
 /**
  * 静态代理

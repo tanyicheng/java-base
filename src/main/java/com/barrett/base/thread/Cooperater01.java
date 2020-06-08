@@ -4,15 +4,15 @@ import com.sun.xml.internal.ws.streaming.TidyXMLStreamReader;
 
 /**
  * 线程通信：管程法；生产者消费者、缓冲区
- *
+ * fixme-2 运行的数据不有误，当出现2个生产者时，会出现2个"生产面包10"，以后有空再研究
  * @Author created by barrett in 2020/6/7 14:49
  */
 public class Cooperater01 {
     public static void main(String[] args) {
         SynContainer synContainer = new SynContainer();
-        new Productor(synContainer,"生产1号").start();
-        new Productor(synContainer,"生产2号").start();
-        new Consumer(synContainer,"消费者").start();
+        new Productor(synContainer, "生产1号").start();
+        new Productor(synContainer, "生产2号").start();
+        new Consumer(synContainer, "消费者").start();
     }
 
 }
@@ -21,7 +21,7 @@ public class Cooperater01 {
 class Productor extends Thread {
     SynContainer synContainer;
 
-    public Productor(SynContainer synContainer,String name) {
+    public Productor(SynContainer synContainer, String name) {
         super(name);
         this.synContainer = synContainer;
     }
@@ -40,7 +40,7 @@ class Productor extends Thread {
 class Consumer extends Thread {
     SynContainer synContainer;
 
-    public Consumer(SynContainer synContainer,String name) {
+    public Consumer(SynContainer synContainer, String name) {
         super(name);
         this.synContainer = synContainer;
     }
@@ -61,17 +61,18 @@ class SynContainer {
 
     //生产
     public synchronized void push(Bun bun) {
-        if (idx == buns.length-1) {
+        if (idx == buns.length - 1) {
             //缓冲区满了，停止生产
             try {
                 this.wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        } else {
+            buns[idx] = bun;
+            idx++;
+            this.notifyAll();//通知消费者消费
         }
-        buns[idx] = bun;
-        idx++;
-        this.notifyAll();//通知消费者消费
     }
 
     //消费
@@ -83,11 +84,14 @@ class SynContainer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            return new Bun(0);
+        } else {
+
+            idx--;
+            Bun bun = buns[idx];
+            this.notifyAll();//通知生产者生产
+            return bun;
         }
-        idx--;
-        Bun bun = buns[idx];
-        this.notifyAll();//通知生产者生产
-        return bun;
     }
 
 }

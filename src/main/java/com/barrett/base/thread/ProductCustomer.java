@@ -10,17 +10,11 @@ public class ProductCustomer {
         Clerk clerk = new Clerk();
         Producter p = new Producter(clerk);
         Customers c = new Customers(clerk);
-        Thread tp1 = new Thread(p);//生产者1
-        Thread tp2 = new Thread(p);//生产者2
-        Thread tc1 = new Thread(c);//消费者1
 
-        tp1.setName("生产1号");
-        tp2.setName("生产2号");
-        tc1.setName("消费1号");
+        new Thread(p,"生产1号").start();
+        new Thread(p,"生产2号").start();
+        new Thread(c,"消费1号").start();
 
-        tp1.start();
-        tp2.start();
-        tc1.start();
     }
 
 }
@@ -86,7 +80,7 @@ class Customers implements Runnable{
     public void run(){
         while(true){
             try {
-                Thread.currentThread().sleep(60);
+                Thread.currentThread().sleep(55);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
