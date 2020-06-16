@@ -3,7 +3,21 @@ package com.barrett.test;
 public class Test {
 
     public static void main(String[] args) {
-        test1();
+        test2("overtime");
+    }
+
+
+    public static void test2(String str){
+        switch (str){
+            case "overtime":
+                System.out.println("1");
+            case "overtimeCheckId":
+                System.out.println("2");
+                break;
+            default:
+                System.out.println(3);
+                break;
+        }
     }
 
     public static void test1() {
