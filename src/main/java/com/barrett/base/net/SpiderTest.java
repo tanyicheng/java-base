@@ -1,8 +1,6 @@
 package com.barrett.base.net;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,12 +15,45 @@ import java.net.URLConnection;
 public class SpiderTest {
     public static void main(String[] args) {
 
-        test2();
+        test();
     }
+
+    /**
+     * @Description //TODO 抓取网页源码，并保存
+     * @Author barrett
+     * @Date 2020/8/2 09:00
+     * @Param
+     * @return
+     **/
+    static void test() {
+        try (
+                BufferedReader read =
+                        new BufferedReader(//提高流处理的速度
+                                new InputStreamReader(//字节流转换为字符流
+                                        new URL("http://demo.qfpffmp.cn/cssthemes6/sads_4_tyjnb/index.html").openStream(), //节点流
+                                        "utf-8"));
+                //输出到文件中
+                BufferedWriter writer =
+                        new BufferedWriter(
+                                new OutputStreamWriter(
+                                        new FileOutputStream("blog.html"), "utf-8"))
+        ) {
+            String msg = "";
+            while ((msg = read.readLine()) != null) {
+                writer.write(msg);
+                writer.newLine();
+//                System.out.print(msg);
+            }
+            writer.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     static void test1() {
         try {
-            URL url = new URL("https://www.jd.com");
+            URL url = new URL("http://demo.qfpffmp.cn/cssthemes6/sads_4_tyjnb/index.html");
             final InputStream inputStream = url.openStream();
             final BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
             String msg;

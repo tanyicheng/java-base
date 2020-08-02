@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * IO流操作步骤
+ * IO输入流操作步骤
  * 1、创建源
  * 2、选择流
  * 3、操作（读）
