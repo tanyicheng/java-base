@@ -48,7 +48,7 @@ public class ExcelWrite {
                 //在sheet中创建一行
                 row = sheet.createRow(i);
                 //列处理
-                for (int j = 0; j < 10; j++) {
+                for (int j = 0; j < 12; j++) {
                     if(num == dataList.size())
                         break;
 
