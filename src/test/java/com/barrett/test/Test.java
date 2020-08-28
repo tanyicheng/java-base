@@ -1,5 +1,8 @@
 package com.barrett.test;
 
+import com.barrett.util.download.DownLoad;
+
+
 public class Test {
 
     public static void main(String[] args) {
@@ -30,4 +33,5 @@ public class Test {
             System.out.println("暂时不去");
         }
     }
+
 }
