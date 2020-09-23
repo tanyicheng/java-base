@@ -26,7 +26,6 @@ public class ModbusRead {
     public static void main(String[] args) throws Exception {
 
         //        String result = readByTCP("localhost", 502, "02", 12605, 2, 1);
-
         //        String result = readByTCP("localhost", 502, "03", 12605, 2, 1);
 
         //2线实测
@@ -35,7 +34,7 @@ public class ModbusRead {
         String ip="127.0.0.1";
         int port=502;
         String funCode = "03";
-        int ref=0;//参数也叫起始地址
+        int ref=12000;//参数也叫起始地址
         int qty = 10;//读取长度
         int slaveId=1;//从站地址
         readByTCP(ip,port, funCode, ref, qty, slaveId);
