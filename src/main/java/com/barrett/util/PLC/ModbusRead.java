@@ -31,6 +31,11 @@ public class ModbusRead {
         //2线实测
 //        readByTCP("192.168.200.23", 502, "03", 12605, 21, 1);
 
+        getPlcInfo();
+
+    }
+
+    public static void getPlcInfo() throws Exception {
         String ip="127.0.0.1";
         int port=502;
         String funCode = "03";
@@ -38,7 +43,6 @@ public class ModbusRead {
         int qty = 10;//读取长度
         int slaveId=1;//从站地址
         readByTCP(ip,port, funCode, ref, qty, slaveId);
-
     }
 
 
