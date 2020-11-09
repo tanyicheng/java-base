@@ -1,0 +1,10 @@
+Jamod：Java Modbus实现：Java Modbus库。该库由Dieter Wimberger实施。
+ModbusPal：ModbusPal是一个正在进行的Java项目，用于创建逼真的Modbus从站模拟器。由于预定义的数学函数和/或Python脚本，寄存器值是动态生成的。ModbusPal依赖于RxTx进行串行通信，而Jython则依赖于脚本支持。
+Modbus4J：Serotonin Software用Java编写的Modbus协议的高性能且易于使用的实现。支持ASCII，RTU，TCP和UDP传输作为从站或主站，自动请求分区，响应数据类型解析和节点扫描。
+JLibModbus：JLibModbus是java语言中Modbus协议的一种实现。jSSC和RXTX用于通过串行端口进行通信。该库是一个经过积极测试和改进的项目。
+
+用后感
+jlibmodbus：集成多个串口通信开源库，有意思
+modbus4j：很有名
+modbus-master-tcp：底层netty，支持异步
+Jamod：Github上安卓开发modbus通信用的多
