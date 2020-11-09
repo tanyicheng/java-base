@@ -1,6 +1,6 @@
 package com.barrett.util.PLC.serial;
 
-import com.barrett.util.PLC.HexUtil;
+import com.barrett.util.PLC.tcp.HexUtil;
 import gnu.io.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,10 +12,10 @@ import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 
-import static com.barrett.util.PLC.HexUtil.listToByte;
+import static com.barrett.util.PLC.tcp.HexUtil.listToByte;
 
 /**
- * 串口工具类
+ * 串口工具类 https://blog.csdn.net/wangmx1993328/article/details/88692848
  * b：波特率（baudrate）
  * d：数据位（datebits），SerialPort 支持 5,6,7,8
  * s：停止位（stopbits），SerialPort 支持 1,2,3
@@ -31,7 +31,6 @@ public class SerialPortTool {
         //设置485地址为 6
 //        String hex = "06 06 00 02 00 06 A9 BF";
 //        byte[] bytes = new byte[hex.split(" ").length];
-
 
         List<Byte> list = HexUtil.hexStringToByteList(hex.replaceAll(" ", ""));
 //        byte[] bytes = HexUtil.hexStringToByte(hex.replaceAll(" ", ""));
@@ -59,6 +58,30 @@ public class SerialPortTool {
 //        SerialPortTool.closeComPort(serialPort);
     }
 
+/**
+ * 测试结果
+ * WARNING:  RXTX Version mismatch
+ * 	Jar version = RXTX-2.2 (CVS snapshot 2011.02.03, modified by CMU CREATE Lab, http://code.google.com/p/create-lab-commons/)
+ * 	native lib Version = RXTX-2.2-20081207 Cloudhopper Build rxtx.cloudhopper.net
+ * now to list all Port of this PC：gnu.io.CommPortEnumerator@59f95c5d
+ * COM1, null
+ * COM2, null
+ * COM3, null
+ * COM8, null
+ * COM9, null
+ * COM19, null
+ * COM20, null
+ * 串口通讯测试 --> 端口选择成功，当前端口：COM3,现在实例化 SerialPort:
+ * 串口通讯测试 --> 实例 SerialPort 成功！
+ * 串口通讯测试 --> 信息发送成功！01 03 00 00 00 02 C4 0B
+ * 串口通讯测试 --> 开始监听来自'COM3'的数据--------------
+ * 串口通讯测试 --> 监听程序将在1秒后关闭。。。。
+ * 串口通讯测试 --> 接收到端口返回数据(长度为27)：01 03 04 01 DA 00 EF 9B B8
+ * 16:55:57.713 [Thread-0] INFO  c.b.util.PLC.serial.SerialPortTool - 温度：23.9，湿度：47.4
+ * 串口通讯测试 --> 端口 COM3 监听关闭了！
+ *
+ * Process finished with exit code 0
+ **/
 
     /**
      * 查找电脑上所有可用 com 端口

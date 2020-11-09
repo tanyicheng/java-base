@@ -108,6 +108,46 @@
             <version>5.9.1</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/gnu.io/rxtx 串口 -->
+<!--        <dependency>-->
+<!--            <groupId>gnu.io</groupId>-->
+<!--            <artifactId>rxtx</artifactId>-->
+<!--            <version>2.1.7</version>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.bidib.jbidib.org.qbang.rxtx</groupId>
+            <artifactId>rxtxcomm</artifactId>
+            <version>2.2</version>
+        </dependency>
+
+
+        <!-- PCL 开源包 -->
+        <dependency>
+            <groupId>com.intelligt.modbus</groupId>
+            <artifactId>jlibmodbus</artifactId>
+            <version>1.2.9.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.infiniteautomation</groupId>
+            <artifactId>modbus4j</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.digitalpetri.modbus</groupId>
+            <artifactId>modbus-master-tcp</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -122,4 +162,32 @@
             </plugin>
         </plugins>
     </build>
+
+    <!-- 若想引用modbus4j需要引入下列repository id:ias-snapshots id:ias-releases 两个 ，使用默认仓库下载，不要使用阿里云仓库-->
+    <repositories>
+        <repository>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>ias-snapshots</id>
+            <name>Infinite Automation Snapshot Repository</name>
+            <url>https://maven.mangoautomation.net/repository/ias-snapshot/</url>
+        </repository>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>ias-releases</id>
+            <name>Infinite Automation Release Repository</name>
+            <url>https://maven.mangoautomation.net/repository/ias-release/</url>
+        </repository>
+    </repositories>
+
+
 </project>

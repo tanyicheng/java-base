@@ -1,4 +1,4 @@
-package com.barrett.util.PLC;
+package com.barrett.util.PLC.tcp;
 
 import net.wimpi.modbus.io.ModbusTCPTransaction;
 import net.wimpi.modbus.msg.WriteMultipleRegistersRequest;

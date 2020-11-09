@@ -1,4 +1,4 @@
-package com.barrett.util.PLC;
+package com.barrett.util.PLC.tcp;
 
 import net.wimpi.modbus.ModbusCoupler;
 import net.wimpi.modbus.io.ModbusTCPTransaction;
@@ -8,6 +8,8 @@ import net.wimpi.modbus.procimg.InputRegister;
 import net.wimpi.modbus.procimg.Register;
 
 import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -32,17 +34,51 @@ public class ModbusRead {
 //        readByTCP("192.168.200.23", 502, "03", 12605, 21, 1);
 
         getPlcInfo();
-
+//        QxPlcUtil.read("127.0.0.1",502,0,true);
     }
 
     public static void getPlcInfo() throws Exception {
         String ip="127.0.0.1";
         int port=502;
-        String funCode = "03";
-        int ref=12000;//参数也叫起始地址
-        int qty = 10;//读取长度
-        int slaveId=1;//从站地址
-        readByTCP(ip,port, funCode, ref, qty, slaveId);
+        int slaveId=1;//从站地址 Slave ID
+        String funCode = "03"; //Function
+        int ref=0;//参数也叫起始地址 Address
+        int qty = 10;//读取长度 Quantity
+        String s = readByTCP(ip, port, funCode, ref, qty, slaveId);
+    }
+
+    /**
+     * 等待客户端plc连接
+     * @author created by barrett in 2020/10/29 17:04
+     **/
+    public static void plcConnect() {
+        System.out.println("---服务端启动---");
+        try {
+            //创建服务器
+            ServerSocket server = new ServerSocket(8888);
+
+            //加入多线程
+            while (true) {
+                //阻塞式等待连接
+                Socket accept = server.accept();
+                System.out.println("一个客户端连接");
+
+                new Thread(() -> {
+                    //接收客户端数据
+                    try {
+                        getPlcInfo();
+
+                        if (server != null)
+                            server.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }).start();
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -60,6 +96,7 @@ public class ModbusRead {
      **/
     public static String readByTCP(String ip, int port, String funcode, int ref, int quantity, Integer unitId)
             throws Exception {
+
         TCPMasterConnection con = null; // the connection
         ModbusTCPTransaction transaction = null; // the transaction
         // ModbusRequest req = null; // the request

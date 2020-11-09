@@ -13,9 +13,27 @@ import java.net.Socket;
  */
 public class Client {
     public static void main(String[] args) {
-        new Client().clientMulit();
+//        new Client().clientMulit();
+        clientPlc();
     }
 
+
+    public static void clientPlc() {
+        try {
+            //建立连接
+            Socket client = new Socket("127.0.0.1", 15000);
+            //输入输出流操作
+            DataOutputStream dos = new DataOutputStream(client.getOutputStream());
+            String str = "hello\n123";
+            dos.writeBytes(str);
+            dos.flush();
+            //释放资源
+            dos.close();
+            client.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     //上传文件
     public static void clientFile() {
@@ -44,7 +62,7 @@ public class Client {
     public static void client() {
         try {
             //建立连接
-            Socket client = new Socket("127.0.0.1", 9999);
+            Socket client = new Socket("127.0.0.1", 15000);
             //输入输出流操作
             DataOutputStream dos = new DataOutputStream(client.getOutputStream());
             String str = "hello";

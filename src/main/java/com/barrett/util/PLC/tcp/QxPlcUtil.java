@@ -1,4 +1,4 @@
-package com.barrett.util.PLC;
+package com.barrett.util.PLC.tcp;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -207,12 +207,15 @@ public class QxPlcUtil {
                 sb.append(HexUtil.intToHexString(sbReqData.toString().length() / 2, 4, true));//请求数据长度
                 sb.append(sbReqData.toString());
                 String readCmd = sb.toString();
+                System.out.println("发送帧>>>>>>>>>>>> "+readCmd);
                 dos.write(HexUtil.hexStringToByte(readCmd));
 
                 DataInputStream dis = new DataInputStream(socket.getInputStream());
                 byte[] buffer = new byte[9]; //从开头到数据长度
                 dis.readFully(buffer);
                 String response = HexUtil.bytesToHexString(buffer);//从开头到数据长度
+
+                System.out.println("接受帧>>>>>>>>>>>> "+readCmd);
                 int result = -1;
                 if ("D000".equals(response.substring(0, 4))) {
                     int dataLen = HexUtil.hexStringToInt(response.substring(14), true);

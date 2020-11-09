@@ -1,4 +1,4 @@
-package com.barrett.util.PLC;
+package com.barrett.util.PLC.tcp;
 
 import com.barrett.util.PLC.conf.CenterConfigs;
 import com.barrett.util.PLC.conf.PlcConfigs;

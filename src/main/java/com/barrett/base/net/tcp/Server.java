@@ -16,7 +16,8 @@ import java.nio.channels.Channel;
 public class Server {
 
     public static void main(String[] args) {
-        new Server().serverMulit();
+//        new Server().serverMulit();
+        new Server().server();
     }
 
     public void serverFile(){

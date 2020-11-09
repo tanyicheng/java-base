@@ -1,4 +1,4 @@
-package com.barrett.util.PLC;
+package com.barrett.util.PLC.tcp;
 
 public enum AppID {
 
