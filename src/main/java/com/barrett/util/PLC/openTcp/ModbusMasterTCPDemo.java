@@ -25,6 +25,35 @@ public class ModbusMasterTCPDemo {
 
     static ModbusTcpMaster master;
 
+    public static void main(String[] args) {
+        try {
+            // 初始化资源
+            initModbusTcpMaster();
+
+            // 执行操作
+
+            // 读取开关量
+//            System.out.println(readCoils(0, 1, 1));
+//            System.out.println(readDiscreteInputs(0, 1, 1));
+//            System.out.println(readDiscreteInputs(1, 1, 1));
+
+            // 读取模拟量
+            Number number = readHoldingRegisters(0, 2, 1);
+
+            System.out.println(number.intValue());
+            System.out.println(readHoldingRegisters(1, 2, 1));
+            System.out.println(readHoldingRegisters(3, 2, 1));
+//            System.out.println(readInputRegisters(2, 4, 1));
+//            System.out.println(readInputRegisters(6, 4, 1));
+
+            // 释放资源
+            release();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     /**
      * 获取TCP协议的Master
      *
@@ -164,31 +193,4 @@ public class ModbusMasterTCPDemo {
         return result;
     }
 
-    public static void main(String[] args) {
-        try {
-            // 初始化资源
-            initModbusTcpMaster();
-
-            // 执行操作
-
-            // 读取开关量
-//            System.out.println(readCoils(0, 1, 1));
-//            System.out.println(readDiscreteInputs(0, 1, 1));
-//            System.out.println(readDiscreteInputs(1, 1, 1));
-
-            // 读取模拟量
-            Number number = readHoldingRegisters(0, 2, 1);
-
-            System.out.println(number.intValue());
-            System.out.println(readHoldingRegisters(1, 2, 1));
-            System.out.println(readHoldingRegisters(3, 2, 1));
-//            System.out.println(readInputRegisters(2, 4, 1));
-//            System.out.println(readInputRegisters(6, 4, 1));
-
-            // 释放资源
-            release();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

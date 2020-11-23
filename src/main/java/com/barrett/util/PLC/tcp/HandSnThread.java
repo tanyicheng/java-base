@@ -24,7 +24,7 @@ public class HandSnThread extends Thread {
 
 
     public static void main(String[] args) {
-        Variables.executor.execute(new HandSnThread(CenterConfigs.listenPortHandSn));
+        Variables.executor.execute(new HandSnThread(502));
 
     }
     @Override

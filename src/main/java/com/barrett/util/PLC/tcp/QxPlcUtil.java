@@ -25,7 +25,6 @@ public class QxPlcUtil {
      * @param ip
      * @param port
      * @param startPos
-     * @param num
      * @param swapHL
      * @return
      * @throws Exception

@@ -18,13 +18,18 @@ import java.net.InetAddress;
  *
  */
 public class JLibModbusDemo {
+
+//    private static String ip = "127.0.0.1";
+    private static String ip = "192.168.3.200";
+    private static int port=Modbus.TCP_PORT;
+
     public static void main(String[] args) {
         try {
             // 设置主机TCP参数
             TcpParameters tcpParameters = new TcpParameters();
 
             // 设置TCP的ip地址
-            InetAddress adress = InetAddress.getByName("127.0.0.1");
+            InetAddress adress = InetAddress.getByName(ip);
 
             // TCP参数设置ip地址
             // tcpParameters.setHost(InetAddress.getLocalHost());
@@ -33,7 +38,7 @@ public class JLibModbusDemo {
             // TCP设置长连接
             tcpParameters.setKeepAlive(true);
             // TCP设置端口，这里设置是默认端口502
-            tcpParameters.setPort(Modbus.TCP_PORT);
+            tcpParameters.setPort(port);
 
             // 创建一个主机
             ModbusMaster master = ModbusMasterFactory.createModbusMasterTCP(tcpParameters);

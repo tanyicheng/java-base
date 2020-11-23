@@ -6,6 +6,10 @@ public class Person {
     private String age;
     private String address;
     private String iphone;
+    private Double num;
+
+    public Person() {
+    }
 
     public Person(Integer id, String name, String age, String address, String iphone) {
         this.id = id;
@@ -53,6 +57,14 @@ public class Person {
 
     public void setIphone(String iphone) {
         this.iphone = iphone;
+    }
+
+    public Double getNum() {
+        return num;
+    }
+
+    public void setNum(Double num) {
+        this.num = num;
     }
 
     @Override

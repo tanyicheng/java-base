@@ -33,12 +33,14 @@ public class ModbusRead {
         //2线实测
 //        readByTCP("192.168.200.23", 502, "03", 12605, 21, 1);
 
-        getPlcInfo();
+//        getPlcInfo();
 //        QxPlcUtil.read("127.0.0.1",502,0,true);
+        plcConnect();
     }
 
     public static void getPlcInfo() throws Exception {
-        String ip="127.0.0.1";
+        String ip="192.168.2.20";
+//        String ip="127.0.0.1";
         int port=502;
         int slaveId=1;//从站地址 Slave ID
         String funCode = "03"; //Function
@@ -97,6 +99,7 @@ public class ModbusRead {
     public static String readByTCP(String ip, int port, String funcode, int ref, int quantity, Integer unitId)
             throws Exception {
 
+        String result="succ";
         TCPMasterConnection con = null; // the connection
         ModbusTCPTransaction transaction = null; // the transaction
         // ModbusRequest req = null; // the request
@@ -118,9 +121,10 @@ public class ModbusRead {
             res = transaction.getResponse();
             return getResponseString(res);
         } catch (Exception e) {
+            result="fail";
             e.printStackTrace();
         }
-        return null;
+        return result;
     }
 
     public static ModbusRequest getReadRequest(String func, int ref, int quantity) {

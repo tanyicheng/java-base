@@ -27,6 +27,34 @@ public class Modbus4jWriteUtils {
         }
     }
 
+    public static void main(String[] args) {
+        try {
+            //@formatter:off
+            // 测试01
+//			boolean t01 = writeCoil(1, 0, true);
+//			System.out.println("T01:" + t01);
+
+            // 测试02
+//			boolean t02 = writeCoils(1, 0, new boolean[] { true, false, true });
+//			System.out.println("T02:" + t02);
+
+            // 测试03
+            short v = 61;
+            boolean t03 = writeRegister(1, 0, v);
+            System.out.println("T03:" + t03);
+            // 测试04
+//			boolean t04 = writeRegisters(1, 0, new short[] { -3, 3, 9 });
+//			System.out.println("t04:" + t04);
+            //写模拟量
+//            writeHoldingRegister(1,0, 10.1f, DataType.FOUR_BYTE_FLOAT);
+
+            //@formatter:on
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     /**
      * 获取tcpMaster
      *
@@ -179,32 +207,5 @@ public class Modbus4jWriteUtils {
         tcpMaster.setValue(locator, value);
     }
 
-    public static void main(String[] args) {
-        try {
-            //@formatter:off
-            // 测试01
-//			boolean t01 = writeCoil(1, 0, true);
-//			System.out.println("T01:" + t01);
-
-            // 测试02
-//			boolean t02 = writeCoils(1, 0, new boolean[] { true, false, true });
-//			System.out.println("T02:" + t02);
-
-            // 测试03
-			short v = 61;
-			boolean t03 = writeRegister(1, 0, v);
-			System.out.println("T03:" + t03);
-            // 测试04
-//			boolean t04 = writeRegisters(1, 0, new short[] { -3, 3, 9 });
-//			System.out.println("t04:" + t04);
-            //写模拟量
-//            writeHoldingRegister(1,0, 10.1f, DataType.FOUR_BYTE_FLOAT);
-
-            //@formatter:on
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
 
 }

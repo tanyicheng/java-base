@@ -30,7 +30,7 @@ public class ModbusWrite {
             int port = 502; // the default port
 
             // 1. Setup the parameters
-            addr = InetAddress.getByName("127.0.0.1"); // ** The address assigned to the module **
+            addr = InetAddress.getByName("192.168.2.20"); // ** The address assigned to the module **
 
             // 2. Open the connection
             con = new TCPMasterConnection(addr);
@@ -44,7 +44,7 @@ public class ModbusWrite {
             //起始地址
 //            WriteSingleRegisterRequest singleReq = new WriteSingleRegisterRequest(0, reg);
             //可以发送多个值，ref 起始地址，后面的依次根据
-            req = new WriteMultipleRegistersRequest(5, new Register[] {reg,reg2});
+            req = new WriteMultipleRegistersRequest(0, new Register[] {reg,reg2});
             // (= address 17)
 
             // 4w. Prepare the transaction
