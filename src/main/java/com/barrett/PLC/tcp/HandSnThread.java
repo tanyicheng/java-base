@@ -1,9 +1,9 @@
-package com.barrett.util.PLC.tcp;
+package com.barrett.PLC.tcp;
 
-import com.barrett.util.PLC.conf.CenterConfigs;
-import com.barrett.util.PLC.conf.PlcConfigs;
-import com.barrett.util.PLC.conf.TransferUnit;
-import com.barrett.util.PLC.conf.Variables;
+import com.barrett.PLC.conf.CenterConfigs;
+import com.barrett.PLC.conf.PlcConfigs;
+import com.barrett.PLC.conf.TransferUnit;
+import com.barrett.PLC.conf.Variables;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
@@ -24,7 +24,7 @@ public class HandSnThread extends Thread {
 
 
     public static void main(String[] args) {
-        Variables.executor.execute(new HandSnThread(502));
+        Variables.executor.execute(new HandSnThread(10000));
 
     }
     @Override

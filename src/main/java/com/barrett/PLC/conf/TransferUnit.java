@@ -1,4 +1,4 @@
-package com.barrett.util.PLC.conf;
+package com.barrett.PLC.conf;
 
 import javax.swing.*;
 import java.awt.*;

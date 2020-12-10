@@ -1,6 +1,6 @@
-package com.barrett.util.PLC.serial;
+package com.barrett.PLC.serial;
 
-import com.barrett.util.PLC.tcp.HexUtil;
+import com.barrett.PLC.tcp.HexUtil;
 import gnu.io.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 
-import static com.barrett.util.PLC.tcp.HexUtil.listToByte;
+import static com.barrett.PLC.tcp.HexUtil.listToByte;
 
 /**
  * 串口工具类 https://blog.csdn.net/wangmx1993328/article/details/88692848

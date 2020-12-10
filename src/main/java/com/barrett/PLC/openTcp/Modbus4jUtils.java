@@ -1,4 +1,4 @@
-package com.barrett.util.PLC.openTcp;
+package com.barrett.PLC.openTcp;
 
 import com.serotonin.modbus4j.BatchRead;
 import com.serotonin.modbus4j.BatchResults;
@@ -47,7 +47,7 @@ public class Modbus4jUtils {
             // 03测试
             Number val = readHoldingRegister(1, 0, DataType.FOUR_BYTE_FLOAT);// 注意,float
 //            Number v032 = readHoldingRegister(1, 3, DataType.FOUR_BYTE_FLOAT);// 同上
-            System.out.println("val: " + val.toString());
+            System.out.println("val: " + val);
 //            System.out.println("v032: " + v032.floatValue());
 
             // 04测试
@@ -71,8 +71,8 @@ public class Modbus4jUtils {
      */
     public static ModbusMaster getMaster() throws ModbusInitException {
         IpParameters params = new IpParameters();
-        params.setHost("localhost");
-//        params.setHost("192.168.2.20");
+//        params.setHost("localhost");
+        params.setHost("192.168.2.20");
         params.setPort(502);
         //
         // modbusFactory.createRtuMaster(wapper); //RTU 协议
@@ -169,8 +169,8 @@ public class Modbus4jUtils {
 
         BatchRead<Integer> batch = new BatchRead<Integer>();
 
-        batch.addLocator(0, BaseLocator.holdingRegister(1, 1, DataType.FOUR_BYTE_FLOAT));
-        batch.addLocator(1, BaseLocator.inputStatus(1, 0));
+        batch.addLocator(0, BaseLocator.holdingRegister(1, 0, DataType.FOUR_BYTE_FLOAT));
+        batch.addLocator(1, BaseLocator.holdingRegister(1, 2, DataType.FOUR_BYTE_FLOAT));
 
         ModbusMaster master = getMaster();
 

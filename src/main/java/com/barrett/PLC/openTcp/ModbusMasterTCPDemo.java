@@ -1,4 +1,4 @@
-package com.barrett.util.PLC.openTcp;
+package com.barrett.PLC.openTcp;
 
 import com.digitalpetri.modbus.codec.Modbus;
 import com.digitalpetri.modbus.master.ModbusTcpMaster;
@@ -31,24 +31,26 @@ public class ModbusMasterTCPDemo {
             initModbusTcpMaster();
 
             // 执行操作
-
             // 读取开关量
 //            System.out.println(readCoils(0, 1, 1));
 //            System.out.println(readDiscreteInputs(0, 1, 1));
 //            System.out.println(readDiscreteInputs(1, 1, 1));
 
-            // 读取模拟量
-            Number number = readHoldingRegisters(0, 2, 1);
+            // 读取模拟量，数据地址，？，ID
+            while (true){
+                Thread.sleep(500);
+                Number number = readHoldingRegisters(2, 3, 1);
 
-            System.out.println(number.intValue());
-            System.out.println(readHoldingRegisters(1, 2, 1));
-            System.out.println(readHoldingRegisters(3, 2, 1));
+                System.out.println("===》 "+number);
+            }
+//            System.out.println(readHoldingRegisters(1, 2, 1));
+//            System.out.println(readHoldingRegisters(3, 2, 1));
 //            System.out.println(readInputRegisters(2, 4, 1));
 //            System.out.println(readInputRegisters(6, 4, 1));
 
+        } catch (Exception e) {
             // 释放资源
             release();
-        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -80,17 +82,12 @@ public class ModbusMasterTCPDemo {
     /**
      * 读取Coils开关量
      *
-     * @param address
-     *            寄存器开始地址
-     * @param quantity
-     *            数量
-     * @param unitId
-     *            ID
+     * @param address  寄存器开始地址
+     * @param quantity 数量
+     * @param unitId   ID
      * @return 读取值
-     * @throws InterruptedException
-     *             异常
-     * @throws ExecutionException
-     *             异常
+     * @throws InterruptedException 异常
+     * @throws ExecutionException   异常
      */
     public static Boolean readCoils(int address, int quantity, int unitId)
             throws InterruptedException, ExecutionException {
@@ -109,17 +106,12 @@ public class ModbusMasterTCPDemo {
     /**
      * 读取readDiscreteInputs开关量
      *
-     * @param address
-     *            寄存器开始地址
-     * @param quantity
-     *            数量
-     * @param unitId
-     *            ID
+     * @param address  寄存器开始地址
+     * @param quantity 数量
+     * @param unitId   ID
      * @return 读取值
-     * @throws InterruptedException
-     *             异常
-     * @throws ExecutionException
-     *             异常
+     * @throws InterruptedException 异常
+     * @throws ExecutionException   异常
      */
     public static Boolean readDiscreteInputs(int address, int quantity, int unitId)
             throws InterruptedException, ExecutionException {
@@ -138,23 +130,17 @@ public class ModbusMasterTCPDemo {
     /**
      * 读取HoldingRegister数据
      *
-     * @param address
-     *            寄存器地址
-     * @param quantity
-     *            寄存器数量
-     * @param unitId
-     *            id
+     * @param address  寄存器地址
+     * @param quantity 寄存器数量
+     * @param unitId   id
      * @return 读取结果
-     * @throws InterruptedException
-     *             异常
-     * @throws ExecutionException
-     *             异常
+     * @throws InterruptedException 异常
+     * @throws ExecutionException   异常
      */
     public static Number readHoldingRegisters(int address, int quantity, int unitId)
             throws InterruptedException, ExecutionException {
         Number result = null;
-        CompletableFuture<ReadHoldingRegistersResponse> future = master
-                .sendRequest(new ReadHoldingRegistersRequest(address, quantity), unitId);
+        CompletableFuture<ReadHoldingRegistersResponse> future = master.sendRequest(new ReadHoldingRegistersRequest(address, quantity), unitId);
         ReadHoldingRegistersResponse readHoldingRegistersResponse = future.get();// 工具类做的同步返回.实际使用推荐结合业务进行异步处理
         if (readHoldingRegistersResponse != null) {
             ByteBuf buf = readHoldingRegistersResponse.getRegisters();
@@ -167,17 +153,12 @@ public class ModbusMasterTCPDemo {
     /**
      * 读取InputRegisters模拟量数据
      *
-     * @param address
-     *            寄存器开始地址
-     * @param quantity
-     *            数量
-     * @param unitId
-     *            ID
+     * @param address  寄存器开始地址
+     * @param quantity 数量
+     * @param unitId   ID
      * @return 读取值
-     * @throws InterruptedException
-     *             异常
-     * @throws ExecutionException
-     *             异常
+     * @throws InterruptedException 异常
+     * @throws ExecutionException   异常
      */
     public static Number readInputRegisters(int address, int quantity, int unitId)
             throws InterruptedException, ExecutionException {

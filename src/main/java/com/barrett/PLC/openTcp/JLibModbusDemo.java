@@ -1,4 +1,4 @@
-package com.barrett.util.PLC.openTcp;
+package com.barrett.PLC.openTcp;
 
 import com.intelligt.modbus.jlibmodbus.Modbus;
 import com.intelligt.modbus.jlibmodbus.exception.ModbusIOException;

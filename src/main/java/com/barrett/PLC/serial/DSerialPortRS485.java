@@ -1,4 +1,4 @@
-package com.barrett.util.PLC.serial;
+package com.barrett.PLC.serial;
 
 import gnu.io.*;
 import org.slf4j.Logger;
@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.Enumeration;
 import java.util.TooManyListenersException;
 
-import static com.barrett.util.PLC.serial.SerialPortTool.*;
+import static com.barrett.PLC.serial.SerialPortTool.*;
 
 /**
  * @项目名称 :illegalsms

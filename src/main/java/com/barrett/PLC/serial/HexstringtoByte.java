@@ -1,4 +1,4 @@
-package com.barrett.util.PLC.serial;
+package com.barrett.PLC.serial;
 
 
 public class HexstringtoByte {

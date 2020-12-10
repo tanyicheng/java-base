@@ -19,7 +19,7 @@ public class Client {
         Socket socket;
         try {
             //建立连接
-            socket = new Socket("localhost", 8888);
+            socket = new Socket("localhost", 502);
 
             //发送消息
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());

@@ -6,7 +6,13 @@ import com.barrett.util.download.DownLoad;
 public class Test {
 
     public static void main(String[] args) {
-        test2("overtime");
+//        test2("overtime");
+
+        String a = new String("1");
+        String b = new String("1");
+
+        System.out.println(b == a);
+        System.out.println(System.identityHashCode("hello"));
     }
 
 

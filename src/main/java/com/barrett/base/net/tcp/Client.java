@@ -21,7 +21,7 @@ public class Client {
     public static void clientPlc() {
         try {
             //建立连接
-            Socket client = new Socket("127.0.0.1", 15000);
+            Socket client = new Socket("127.0.0.1", 10000);
             //输入输出流操作
             DataOutputStream dos = new DataOutputStream(client.getOutputStream());
             String str = "hello\n123";

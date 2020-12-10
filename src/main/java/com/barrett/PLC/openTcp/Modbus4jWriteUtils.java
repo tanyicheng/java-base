@@ -1,4 +1,4 @@
-package com.barrett.util.PLC.openTcp;
+package com.barrett.PLC.openTcp;
 
 import com.serotonin.modbus4j.ModbusFactory;
 import com.serotonin.modbus4j.ModbusMaster;

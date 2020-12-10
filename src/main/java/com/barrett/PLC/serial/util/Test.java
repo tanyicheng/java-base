@@ -1,4 +1,4 @@
-package com.barrett.util.PLC.serial.util;
+package com.barrett.PLC.serial.util;
 
 public class Test {
 

@@ -1,18 +1,26 @@
-package com.barrett.test;
+package com.barrett.plc;
 
-import com.barrett.util.PLC.tcp.HexUtil;
+import com.barrett.PLC.tcp.HexUtil;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.net.Socket;
 
+/**
+ * mc协议解析 Qna-3E协议
+ *
+ * @author created by barrett in 2020/11/24 15:11
+ **/
 public class MC {
 
+    //5厂 流水线："192.168.3.101",4002
     public static void main(String[] args) {
         try {
 //            write("192.168.3.101",4002,1,new String[1],false);
-            read("192.168.3.101",4002,1,1,false);
+            String[] read = read("127.0.0.1", 15000, 1, 1, false);
+            for (String s : read) {
+                System.out.println(s);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -21,7 +29,7 @@ public class MC {
 
     public static String[] read(String ip, int port, int startPos, int num, boolean swapHL) throws Exception {
 
-        Socket socket = new Socket(ip,port);
+        Socket socket = new Socket(ip, port);
 
         DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
         StringBuffer sb = new StringBuffer("5000"); //副标题，命令代码
@@ -39,7 +47,7 @@ public class MC {
         sbReqData.append(HexUtil.intToHexString(num, 4, true));//软元件数
         sb.append(HexUtil.intToHexString(sbReqData.toString().length() / 2, 4, true));//请求数据长度
         sb.append(sbReqData.toString());
-        String readCmd = "50 00 00 FF FF 03 00 0E 00 10 00 01 04 00 00 0A 00 00 A8 01 00 0F 00".replaceAll(" ","");
+        String readCmd = "50 00 00 FF FF 03 00 0E 00 10 00 01 04 00 00 0A 00 00 A8 01 00 0F 00".replaceAll(" ", "");
 //        String readCmd = sb.toString();
 
         System.out.println(readCmd);
@@ -47,16 +55,16 @@ public class MC {
         dos.write(HexUtil.hexStringToByte(readCmd));
 
         //开始读取
-        DataInputStream dis = new DataInputStream(socket.getInputStream());
+//        DataInputStream dis = new DataInputStream(socket.getInputStream());
         byte[] buffer = new byte[20]; //从开头到数据长度
-        dis.readFully(buffer);
-        String response = HexUtil.bytesToHexString(buffer);//从开头到数据长度
+//        dis.readFully(buffer);
+        String response = "D0 00 00 FF FF 03 00 0C 00 00 00 0C 00 00 00 00 00 00 00 00 00".replaceAll(" ", "");//HexUtil.bytesToHexString(buffer);//从开头到数据长度
         String[] results = null;
-        System.out.println("======="+response);
+        System.out.println("response：" + response);
         if ("D000".equals(response.substring(0, 4))) {
-            int dataLen = HexUtil.hexStringToInt(response.substring(14), true);
+            int dataLen = HexUtil.hexStringToInt(response.substring(14,18), true);
             buffer = new byte[dataLen];
-            dis.readFully(buffer);
+//            dis.readFully(buffer);
             String dataResponse = HexUtil.bytesToHexString(buffer);//数据
             String resCode = dataResponse.substring(0, 4); //结束代码
             if ("0000".equals(resCode)) {
@@ -78,7 +86,7 @@ public class MC {
 
     public static void write(String ip, int port, int startPos, String[] datas, boolean swapHL) throws Exception {
         try {
-            Socket socket = new Socket(ip,port);
+            Socket socket = new Socket(ip, port);
 
             synchronized (socket) {
                 DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
@@ -103,7 +111,7 @@ public class MC {
 //                }
 //                sb.append(HexUtil.intToHexString(sbReqData.toString().length() / 2, 4, true));//请求数据长度
 //                sb.append(sbReqData.toString());
-                String writeCmd = "50 00 00 FF FF 03 00 0E 00 10 00 01 14 00 00 0A 00 00 A8 01 00 0F 00".replaceAll(" ","");
+                String writeCmd = "50 00 00 FF FF 03 00 0E 00 10 00 01 14 00 00 0A 00 00 A8 01 00 0F 00".replaceAll(" ", "");
 //                String writeCmd = sb.toString();
                 System.out.println(writeCmd);
 //                byte[] bytes = new byte[100];
@@ -122,11 +130,11 @@ public class MC {
                     int dataLen = HexUtil.hexStringToInt(response.substring(14), true);
                     buffer = new byte[dataLen];
                     dis.readFully(buffer);
-                    //                String dataResponse = HexUtil.bytesToHexString(buffer); //数据
+//                    String dataResponse = HexUtil.bytesToHexString(buffer); //数据
                 }
             }
         } catch (Exception ex) {
-          ex.printStackTrace();
+            ex.printStackTrace();
         }
     }
 }

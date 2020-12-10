@@ -1,4 +1,4 @@
-package com.barrett.util.PLC.serial.util;
+package com.barrett.PLC.serial.util;
 
 import gnu.io.CommPortIdentifier;
 import gnu.io.PortInUseException;

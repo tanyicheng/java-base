@@ -1,4 +1,4 @@
-package com.barrett.util.PLC.serial;
+package com.barrett.PLC.serial;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

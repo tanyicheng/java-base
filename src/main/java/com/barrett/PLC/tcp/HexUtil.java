@@ -1,4 +1,4 @@
-package com.barrett.util.PLC.tcp;
+package com.barrett.PLC.tcp;
 
 import java.util.*;
 
