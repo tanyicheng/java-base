@@ -1,4 +1,4 @@
-package com.barrett.api;
+package com.barrett.http;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.http.Header;

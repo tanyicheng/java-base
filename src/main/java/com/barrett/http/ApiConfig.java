@@ -1,4 +1,4 @@
-package com.barrett.api;
+package com.barrett.http;
 
 import org.apache.http.Header;
 import org.apache.http.message.BasicHeader;

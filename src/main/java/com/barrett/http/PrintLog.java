@@ -1,4 +1,4 @@
-package com.barrett.api;
+package com.barrett.http;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
