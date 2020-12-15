@@ -16,7 +16,6 @@ public class Liskov {
 		System.out.println("1+8=" + b.func1(1, 8));// 1+8
 		System.out.println("11+3+9=" + b.func2(11, 3));
 
-
 		//使用组合仍然可以使用到A类相关方法
 		System.out.println("11-3=" + b.func3(11, 3));// 这里本意是求出11-3
 
