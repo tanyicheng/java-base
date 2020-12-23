@@ -8,7 +8,7 @@ package com.barrett.gof.原则.开闭原则.improve;
  * TODO 改进的思路分析
  * 思路：把创建Shape类做成抽象类，并提供一个抽象的draw方法，让子类去实现即可，
  * 这样我们有新的图形种类时，只需要让新的图形类继承Shape，并实现draw方法即可，
- * 使用方的代码就不需要修 -> 满足了开闭原则
+ * 使用方的代码就不需要修改 -> 满足了开闭原则
  *
  * @author created by barrett in 2020/12/15 21:45
  **/
