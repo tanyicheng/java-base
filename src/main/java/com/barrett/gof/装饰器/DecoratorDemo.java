@@ -1,4 +1,4 @@
-package com.barrett.gof.decorator;
+package com.barrett.gof.装饰器;
 
 /**
  * 装饰器(咖啡)

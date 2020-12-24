@@ -2,22 +2,23 @@ package com.barrett.gof.原则.依赖倒置;
 
 /**
  * 未使用依赖倒置原则
+ *
  * @author created by barrett in 2020/12/14 21:54
  **/
 public class DependecyInversion {
 
-	public static void main(String[] args) {
-		Person person = new Person();
-		person.receive(new Email());
-	}
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.receive(new Email());
+    }
 
 }
 
 
 class Email {
-	public String getInfo() {
-		return "电子邮件信息: hello,world";
-	}
+    public String getInfo() {
+        return "电子邮件信息: hello,world";
+    }
 }
 
 //完成Person接收消息的功能
@@ -27,7 +28,7 @@ class Email {
 //3. 解决思路：引入一个抽象的接口IReceiver, 表示接收者, 这样Person类与接口IReceiver发生依赖
 //   因为Email, WeiXin 等等属于接收的范围，他们各自实现IReceiver 接口就ok, 这样我们就符号依赖倒转原则
 class Person {
-	public void receive(Email email ) {
-		System.out.println(email.getInfo());
-	}
+    public void receive(Email email) {
+        System.out.println(email.getInfo());
+    }
 }

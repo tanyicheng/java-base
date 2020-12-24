@@ -1,4 +1,4 @@
-package com.barrett.gof.proxy.dynamicProxy;
+package com.barrett.gof.代理.dynamicProxy;
 
 /**
  * 人的基本属性
