@@ -35,4 +35,11 @@ class Singleton {
 		}
 		return instance;
 	}
+//	TODO 加同步锁，解决线程安全问题，但是貌似依旧有问题，待研究？
+//	public static synchronized Singleton getInstance() {
+//		if(instance == null) {
+//			instance = new Singleton();
+//		}
+//		return instance;
+//	}
 }
