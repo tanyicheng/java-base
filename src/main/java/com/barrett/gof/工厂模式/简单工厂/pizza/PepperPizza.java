@@ -2,7 +2,7 @@ package com.barrett.gof.工厂模式.简单工厂.pizza;
 
 /**
  * 制作胡椒披萨
- * @author created by barrett in 2020/12/27 19:59
+ * @author created by barrett in 2020/12/27 22:38
  **/
 public class PepperPizza extends Pizza {
 

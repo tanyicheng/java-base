@@ -40,8 +40,7 @@ public class SimpleFactory {
 		return pizza;
 	}
 	
-	//简单工厂模式 也叫 静态工厂模式 
-	
+	//简单工厂模式 也叫 静态工厂模式
 	public static Pizza createPizza2(String orderType) {
 
 		Pizza pizza = null;

@@ -5,7 +5,7 @@ package com.barrett.gof.单例.枚举;
  * 且还能防止反序列化重新创建新的对象。
  * 2) 这种方式是Effective Java作者Josh Bloch 提倡的方式
  * 3) 结论：推荐使用
- * @author created by barrett in 2020/12/26 22:54
+ * @author created by barrett in 2020/12/27 22:38
  **/
 public class SingletonTest08 {
 	public static void main(String[] args) {
