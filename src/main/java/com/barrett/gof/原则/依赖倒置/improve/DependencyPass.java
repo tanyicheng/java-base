@@ -1,7 +1,7 @@
 package com.barrett.gof.原则.依赖倒置.improve;
 
 /**
- * TODO-demo
+ * TODO-demo 依赖倒转原则
  * 1) 低层模块尽量都要有抽象类或接口，或者两者都有，程序稳定性更好.
  * 2) 变量的声明类型尽量是抽象类或接口, 这样我们的变量引用和实际对象间，就存在
  * 一个缓冲层，利于程序扩展和优化
@@ -11,13 +11,20 @@ package com.barrett.gof.原则.依赖倒置.improve;
 public class DependencyPass {
 
     public static void main(String[] args) {
+    	//长虹的电视机
         ChangHong changHong = new ChangHong();
+		Xiaomi xiaomi = new Xiaomi();
+
         //方式一：
 //		OpenAndClose openAndClose = new OpenAndClose();
 //		openAndClose.open(changHong);
 
         //方式二：通过构造器进行依赖传递
+		//开关电视机的操作，传入参数（电视机），TV作为开关类的成员
 		OpenAndClose openAndClose = new OpenAndClose(changHong);
+		openAndClose.open();
+
+		openAndClose = new OpenAndClose(xiaomi);
 		openAndClose.open();
 
         //方式三：通过setter方法进行依赖传递
@@ -83,5 +90,12 @@ class ChangHong implements ITV {
         // TODO Auto-generated method stub
         System.out.println("长虹电视机，打开");
     }
-
+}
+//todo 新增电视机
+class Xiaomi implements ITV {
+    @Override
+    public void play() {
+        // TODO Auto-generated method stub
+        System.out.println("小米电视机，打开");
+    }
 }
