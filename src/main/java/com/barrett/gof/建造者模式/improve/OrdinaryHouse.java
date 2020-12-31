@@ -4,7 +4,7 @@ package com.barrett.gof.建造者模式.improve;
  * 具体的产品
  * @author created by barrett in 2020/12/29 22:05
  **/
-public class CommonHouse extends HouseBuilder {
+public class OrdinaryHouse extends HouseBuilder {
 
 	@Override
 	public void basic() {
