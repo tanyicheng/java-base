@@ -15,7 +15,7 @@ public class CommonHouse extends HouseBuilder {
 	@Override
 	public void walls() {
 		// TODO Auto-generated method stub
-		System.out.println(" 普通房子砌墙10cm ");
+		System.out.println(" 普通房子砌墙10m ");
 	}
 
 	@Override

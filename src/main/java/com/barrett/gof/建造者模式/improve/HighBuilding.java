@@ -15,7 +15,7 @@ public class HighBuilding extends HouseBuilder {
 	@Override
 	public void walls() {
 		// TODO Auto-generated method stub
-		System.out.println(" 高楼的砌墙20cm ");
+		System.out.println(" 高楼的砌墙20m ");
 	}
 
 	@Override
