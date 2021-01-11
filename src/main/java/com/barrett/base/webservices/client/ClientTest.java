@@ -1,8 +1,5 @@
 package com.barrett.base.webservices.client;
 
-import com.barrett.base.webservices.WeatherService;
-import com.barrett.base.webservices.WeatherServiceService;
-
 /**
  *  WebServer客户端测试
  * <p>
@@ -21,10 +18,10 @@ public class ClientTest {
      * @author created by barrett in 2020/11/18 16:10
      **/
     public static void main(String[] args) {
-        WeatherServiceService factory = new WeatherServiceService();
-        WeatherService servicePort = factory.getWeatherServicePort();
-        String weather = servicePort.getWeatherByCityname("深圳");
-        System.out.println(weather);
+//        WeatherServiceService factory = new WeatherServiceService();
+//        WeatherService servicePort = factory.getWeatherServicePort();
+//        String weather = servicePort.getWeatherByCityname("深圳");
+//        System.out.println(weather);
     }
 
 }
