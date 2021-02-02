@@ -33,3 +33,11 @@
 2) 一份Chocolate包含了(Milk+LongBlack)
 3) 一份Chocolate包含了(Chocolate+Milk+LongBlack)
 4) 这样不管是什么形式的单品咖啡+调料组合，通过递归方式可以方便的组合和维护。
+
+装饰者模式在JDK应用的源码分析
+Java的IO结构，FilterInputStream就是一个装饰者
+![项目分支和版本控制流程图](./images/img_1.png)
+public abstract class InputStream implements Closeable{} //是一个抽象类，即Component
+public class FilterInputStream extends InputStream { //是一个装饰者类Decorator
+protected volatile InputStream in //被装饰的对象 }
+class DataInputStream extends FilterInputStream implements DataInput { //FilterInputStream 子类，
