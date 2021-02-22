@@ -1,19 +1,19 @@
-package com.barrett.gof.composite;
+package com.barrett.gof.组合模式;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 大学
- * University 就是 Composite , 可以管理 College
- * @author created by barrett in 2021/2/3 21:59
+ * 学院
+ * @author created by barrett in 2021/2/3 22:03
  **/
-public class University extends OrganizationComponent {
+public class College extends OrganizationComponent {
 
+	//List 中 存放的 Department
 	List<OrganizationComponent> organizationComponents = new ArrayList<OrganizationComponent>();
 
 	// 构造器
-	public University(String name, String des) {
+	public College(String name, String des) {
 		super(name, des);
 		// TODO Auto-generated constructor stub
 	}
@@ -22,6 +22,7 @@ public class University extends OrganizationComponent {
 	@Override
 	protected void add(OrganizationComponent organizationComponent) {
 		// TODO Auto-generated method stub
+		//  将来实际业务中，Colleage 的 add 和  University add 不一定完全一样
 		organizationComponents.add(organizationComponent);
 	}
 
@@ -54,5 +55,6 @@ public class University extends OrganizationComponent {
 			organizationComponent.print();
 		}
 	}
+
 
 }

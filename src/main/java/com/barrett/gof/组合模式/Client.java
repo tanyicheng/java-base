@@ -1,4 +1,4 @@
-package com.barrett.gof.composite;
+package com.barrett.gof.组合模式;
 
 
 /**

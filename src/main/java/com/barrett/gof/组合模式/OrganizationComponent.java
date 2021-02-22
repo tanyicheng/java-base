@@ -1,4 +1,4 @@
-package com.barrett.gof.composite;
+package com.barrett.gof.组合模式;
 
 /**
  * 抽象类，组合各个单位，适用于树状结构，叶子，节点
