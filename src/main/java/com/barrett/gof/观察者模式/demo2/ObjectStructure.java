@@ -1,4 +1,4 @@
-package com.barrett.gof.观察者模式;
+package com.barrett.gof.观察者模式.demo2;
 
 import java.util.LinkedList;
 import java.util.List;

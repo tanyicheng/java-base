@@ -1,4 +1,4 @@
-package com.barrett.gof.观察者模式;
+package com.barrett.gof.观察者模式.demo2;
 
 public class Client {
 
@@ -6,7 +6,8 @@ public class Client {
 		// TODO Auto-generated method stub
 		//创建ObjectStructure
 		ObjectStructure objectStructure = new ObjectStructure();
-		
+
+		new Man();
 		objectStructure.attach(new Man());
 		objectStructure.attach(new Woman());
 		

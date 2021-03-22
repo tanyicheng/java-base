@@ -1,4 +1,4 @@
-package com.barrett.gof.观察者模式;
+package com.barrett.gof.观察者模式.demo2;
 
 //说明
 //1. 这里我们使用到了双分派, 即首先在客户端程序中，将具体状态作为参数传递Woman中(第一次分派)
