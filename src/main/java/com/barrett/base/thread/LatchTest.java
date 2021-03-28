@@ -1,22 +1,13 @@
 package com.barrett.base.thread;
 
-
 import java.io.BufferedReader;
-
 import java.io.IOException;
-
 import java.io.InputStream;
-
 import java.io.InputStreamReader;
-
 import java.io.OutputStream;
-
 import java.net.HttpURLConnection;
-
 import java.net.MalformedURLException;
-
 import java.net.URL;
-
 import java.util.concurrent.CountDownLatch;
 
 public class LatchTest {
@@ -24,6 +15,7 @@ public class LatchTest {
         Runnable taskTemp = new Runnable() {
             // 注意，此处是非线程安全的，留坑
             private int iCounter;
+
             @Override
             public void run() {
                 for (int i = 0; i < 10; i++) {
@@ -138,6 +130,7 @@ class HttpClientOp {
         }
         return result;
     }
+
     public static String doPost(String httpUrl, String param) {
         HttpURLConnection connection = null;
         InputStream is = null;
