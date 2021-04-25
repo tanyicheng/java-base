@@ -6,6 +6,7 @@ import javax.imageio.plugins.jpeg.JPEGImageReadParam;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicIntegerArray;
 
 public class TestList {
 
@@ -57,4 +58,16 @@ public class TestList {
         }
         System.out.println(list.size());
     }
+
+    public static class AtomicExample {
+        private static int[] value = new int[]{1, 2, 3};
+        private static AtomicIntegerArray integerArray = new AtomicIntegerArray(value);
+
+        public static void main(String[] args) {
+            //对数组中索引为2的位置的元素加3
+            int result = integerArray.getAndAdd(2, 3);
+            System.out.println(integerArray.get(2));
+            System.out.println(result);
+        }
+    }// 6 3
 }
