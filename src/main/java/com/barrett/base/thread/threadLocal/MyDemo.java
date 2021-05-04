@@ -23,7 +23,7 @@ public class MyDemo {
                 public void run() {
                     demo.setContent(Thread.currentThread().getName() + "的数据");
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(10);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

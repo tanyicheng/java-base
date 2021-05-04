@@ -11,6 +11,8 @@ package com.barrett.base.thread.threadLocal;
  *          2. get() :获取当前线程绑定的变量
  *
  * 从结果来看，这样很好的解决了多线程之间数据隔离的问题
+ * 马士兵视频教程整理：https://blog.csdn.net/weixin_44075132/article/details/115543608?utm_source=app&app_version=4.5.5
+ * 黑马视频 https://blog.csdn.net/weixin_44050144/article/details/113061884
  * @author created by barrett in 2021/4/25 22:07
  **/
 public class MyDemo1 {
