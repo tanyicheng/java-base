@@ -1,5 +1,7 @@
 package com.barrett.base.thread;
 
+import com.barrett.util.DateUtil;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Timer;
@@ -25,6 +27,6 @@ class MyTask extends TimerTask {
 
     @Override
     public void run() {
-        System.out.println("放空大脑。。。");
+        System.out.println(DateUtil.getDateTime()+" 放空大脑。。。");
     }
 }
