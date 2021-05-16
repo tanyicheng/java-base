@@ -2,6 +2,7 @@ package com.barrett.util.getId;
 
 import com.alibaba.druid.support.logging.Log;
 import com.alibaba.druid.support.logging.LogFactory;
+import com.barrett.util.DateUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.management.ManagementFactory;
@@ -16,13 +17,21 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Sequence {
     private static final Log logger = LogFactory.getLog(Sequence.class);
 
-    public static void main(String[] args) {
-        Sequence get = new Sequence();
-
-        long l = get.nextId();
-        System.out.println(l);
+    /**
+     *
+     * @author created by barrett in 2021/5/15 20:38
+     **/
+    public static Sequence getInst(){
+        return new Sequence();
     }
-    public Sequence() {
+    public static void main(String[] args) {
+        long l1 = System.currentTimeMillis();
+        Sequence get = new Sequence();
+        long l = get.nextId();
+        long timestamp = DateUtil.timestamp(l1, System.currentTimeMillis());
+        System.out.println(l+"  "+timestamp+"ms");
+    }
+    private Sequence() {
         this.datacenterId = getDatacenterId(maxDatacenterId);
         this.workerId = getMaxWorkerId(datacenterId, maxWorkerId);
     }

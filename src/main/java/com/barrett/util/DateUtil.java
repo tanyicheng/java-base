@@ -200,6 +200,7 @@ public class DateUtil {
     /**
      * 计算时间差<br> 格式：2018-01-02 11:30:24
      * first - last
+     *
      * @param dateFirst
      * @param dateLast
      * @param flag      ss 计算秒数差，dd 计算天数
@@ -208,7 +209,7 @@ public class DateUtil {
      */
     public static long dateDifferenceNum(String dateFirst, String dateLast, String flag) {
         DateFormat df = null;
-        long interval = 0l;
+        long interval = 0L;
         try {
             Calendar c1 = Calendar.getInstance();
             Calendar c2 = Calendar.getInstance();
@@ -218,7 +219,7 @@ public class DateUtil {
                 interval = (df.parse(dateLast).getTime() - df.parse(dateFirst).getTime()) / 1000;
             } else if (flag.equals("dd")) {
                 df = new SimpleDateFormat("yyyy-MM-dd");
-                interval = (df.parse(dateLast).getTime() - df.parse(dateFirst).getTime()) / (1000*3600*24);
+                interval = (df.parse(dateLast).getTime() - df.parse(dateFirst).getTime()) / (1000 * 3600 * 24);
             }
 
         } catch (Exception e) {
@@ -280,6 +281,16 @@ public class DateUtil {
         return enddate;
     }
 
+    /**
+     * 根据时间戳计算差值
+     *
+     * @author created by barrett in 2021/5/16 20:42
+     **/
+    public static long timestamp(long first, long end) {
+        long result = end - first;
+        return result;
+    }
+
     public static void main(String[] args) {
         DateUtil d = new DateUtil();
         //d.stringToDate("2004-03-26 13:31:40");
@@ -288,7 +299,9 @@ public class DateUtil {
 //		System.out.println(getDateTimeToOrder());
 //		System.out.println(dateDifferenceNum("2004-03-26 13:00:40", "2004-03-26 13:60:40"));
 //		System.out.println(getDateTime());;
-        plusDay(1, null);
+//        plusDay(1, null);
 //		plusDay(1,"2018-12-31");
+        long timestamp = timestamp(1621169244719L,1621169267719L);
+        System.out.println(timestamp);
     }
 }
