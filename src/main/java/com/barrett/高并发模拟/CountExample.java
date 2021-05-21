@@ -1,7 +1,6 @@
 package com.barrett.高并发模拟;
 
 import com.barrett.util.DateUtil;
-import com.barrett.util.getId.IdUtil;
 import com.barrett.util.getId.Sequence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
