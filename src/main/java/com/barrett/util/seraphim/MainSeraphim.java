@@ -1,6 +1,7 @@
 package com.barrett.util.seraphim;
 
 
+import com.barrett.util.seraphim.temp.Heartbeat;
 import com.barrett.util.seraphim.temp.WeldingLocation;
 
 import java.lang.reflect.Field;
@@ -19,9 +20,20 @@ public class MainSeraphim {
     // 固定字段
     public static String[] params = {"rowId", "createdBy", "createdTime", "updateBy", "updateTime", "isValid"};
     //fixme 需要生成的类
-    public static Object object = new WeldingLocation();
+    public static Object object = new Heartbeat();
     //fixme 表名
-    public static String table = WeldingLocation.TableName;
+    public static String table;
+
+    static {
+        try {
+            Field field = object.getClass().getField("TableName");
+            table = (String) field.get(object);
+            System.out.println(table);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
     //批量插入时主表id,这里主要用来mapper.xml中替换关联的id
     //fixme 手动修改字段
     public static String parentId = "ivDevicesId";
@@ -49,9 +61,9 @@ public class MainSeraphim {
 //        mc.createMapper(flag);
 
         // 3、生成 Service
-//        mc.createIService();
+        mc.createIService();
+        mc.createService();
 
-//        mc.createService();
         // 4、生成 Controller
 //        servicePackage = servicePath.replace("/", ".") + "." + serviceClassName;
 //        mc.createCtrl();

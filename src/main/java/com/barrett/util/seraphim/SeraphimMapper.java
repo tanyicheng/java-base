@@ -1,7 +1,8 @@
 package com.barrett.util.seraphim;
 
-import org.apache.commons.lang.CharUtils;
-import org.apache.commons.lang.StringUtils;
+
+import org.apache.commons.lang3.CharUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
 import java.util.*;

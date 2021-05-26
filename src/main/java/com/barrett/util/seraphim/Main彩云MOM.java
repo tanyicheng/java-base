@@ -1,7 +1,7 @@
 package com.barrett.util.seraphim;
 
-import com.util.generatingCode.WriteFile;
-import com.util.seraphim.temp.IVDevicesCollect;
+
+import com.barrett.util.seraphim.temp.IVDevicesCollect;
 
 /**
  * seraphim 项目
