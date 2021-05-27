@@ -11,7 +11,8 @@ import java.net.NetworkInterface;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * 生成唯一的主键id
+ * 分布式主键id
+ * 来自mybatisplus 采用雪花算法 ，耗时较长
  * @author created by barrett in 2021/5/10 19:28
  **/
 public class Sequence {
