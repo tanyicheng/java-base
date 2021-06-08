@@ -29,11 +29,12 @@ public class SyncThread12306 implements Runnable {
     public synchronized void test() throws InterruptedException {
         if (tickets <= 0) {
             flag = false;
+            System.out.println(Thread.currentThread().getName() +" sorry 售票结束");
             return;
         }
         //模拟网络延迟
         Thread.sleep(200);
-        System.out.println(Thread.currentThread().getName() + " 取票 " + tickets--);
+        System.out.println(Thread.currentThread().getName() + " 取第 " + tickets-- +" 张票");
     }
 
     public static void main(String[] args) {

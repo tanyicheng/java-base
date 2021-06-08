@@ -13,8 +13,8 @@ public class SyncThreadBank {
 
     public static void main(String[] args) throws InterruptedException {
         Account account = new Account("彩票中奖金额", 100);
-        Drawing you = new Drawing(account,80,"你自己");
-        Drawing wife = new Drawing(account,70,"你妻子");
+        Drawing you = new Drawing(account, 30, "你自己");
+        Drawing wife = new Drawing(account, 20, "你妻子");
 
         you.start();
         wife.start();
@@ -41,28 +41,29 @@ class Drawing extends Thread {
     }
 
     private void test() {
-        //TODO 为了提高性能
-        if (account.money - getMoney <= 0) {
-            return;
-        }
-
-        // TODO 这里就不能锁this对象了，要锁具体的共享资源的对象 account
-        synchronized (account){
+        while (true) {
+            //TODO 为了提高性能
             if (account.money - getMoney <= 0) {
-                System.out.println("余额不足");
                 return;
             }
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            //账户扣除本次取钱金额
-            account.money -= getMoney;
-            packetTotal += getMoney;
-            System.out.println("账户余额：" + account.money);
-            System.out.println("口袋现金：" + packetTotal);
-        }
 
+            // TODO 这里就不能锁this对象了，要锁具体的共享资源的对象 account
+            synchronized (account) {
+                if (account.money - getMoney <= 0) {
+                    System.out.println("余额不足");
+                    return;
+                }
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                //账户扣除本次取钱金额
+                account.money -= getMoney;
+                packetTotal += getMoney;
+                System.out.println("账户余额：" + account.money+"   口袋现金：" + packetTotal);
+            }
+
+        }
     }
 }
