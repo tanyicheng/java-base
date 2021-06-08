@@ -15,6 +15,7 @@ public class Client {
 		System.out.println(" === 类适配器模式 ====");
 		Phone phone = new Phone();
 		phone.charging(new VoltageAdapter5());
+
 	}
 
 }
