@@ -33,7 +33,6 @@ class Acount implements Runnable {
         this.money = money;
     }
 
-
     @Override
     public void run() {
 
