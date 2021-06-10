@@ -78,7 +78,7 @@ public class CommonsIODemo {
             final byte[] bytes = FileUtils.readFileToByteArray(new File(".gitignore"));
             System.out.println(bytes.length);
 
-            System.out.println("----------------------------");
+            System.out.println("---------------------------");
             //逐行读取
             final List<String> strings = FileUtils.readLines(new File(".gitignore"), "utf-8");
             for (String string : strings) {
