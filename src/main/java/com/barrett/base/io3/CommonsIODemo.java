@@ -83,9 +83,7 @@ public class CommonsIODemo {
             final List<String> strings = FileUtils.readLines(new File(".gitignore"), "utf-8");
             for (String string : strings) {
                 System.out.println(string);
-
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
