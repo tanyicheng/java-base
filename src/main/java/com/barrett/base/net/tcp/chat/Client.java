@@ -19,7 +19,7 @@ public class Client {
         Socket socket;
         try {
             //建立连接
-            socket = new Socket("localhost", 502);
+            socket = new Socket("localhost", 8888);
 
             //发送消息
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
@@ -31,7 +31,7 @@ public class Client {
                 //获取消息
                 BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
                 String msg = reader.readLine();
-                dos.writeUTF(msg);
+                dos.writeUTF(msg+"---------------------------");
                 dos.flush();
                 //接收消息
                 String data = dis.readUTF();

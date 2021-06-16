@@ -5,6 +5,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 在线聊天室
@@ -14,7 +16,12 @@ import java.net.Socket;
 public class ChatServer {
 
     public static void main(String[] args) {
-        new ChatServer().chat();
+//        new ChatServer().chat();
+
+        Map<Integer,String> map = new HashMap<>();
+        map.put(1,"123");
+
+        System.out.println(map.get(1));
     }
 
     public void chat() {
@@ -27,7 +34,7 @@ public class ChatServer {
             while (true) {
                 //阻塞式等待连接
                 Socket accept = server.accept();
-                System.out.println("一个客户端连接");
+                System.out.println("一个客户端连接 "+accept.getInetAddress()+":"+accept.getPort());
 
                 new Thread(() -> {
                     //接收客户端数据
@@ -67,6 +74,14 @@ public class ChatServer {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            //
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            }
+            System.out.println("start reconnect ...");
+            chat();
         }
     }
 
