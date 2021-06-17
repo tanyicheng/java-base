@@ -27,7 +27,6 @@ public class Client2 {
         try {
             //建立连接
             socket = new Socket("localhost", 8886);
-
             //发送消息
             dos = new DataOutputStream(socket.getOutputStream());
             dis = new DataInputStream(socket.getInputStream());
