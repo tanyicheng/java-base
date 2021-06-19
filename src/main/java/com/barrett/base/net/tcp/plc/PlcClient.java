@@ -1,4 +1,4 @@
-package com.barrett.base.net.tcp.chat;
+package com.barrett.base.net.tcp.plc;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -7,15 +7,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
+
 /**
- * 客户端
- *
- * @Author created by barrett in 2020/5/26 22:07
- */
-public class Client2 {
+ * 某设备的上位机-客户端
+ * @author created by barrett in 2021/6/18 21:07
+ **/
+public class PlcClient {
 
     public static void main(String[] args) {
-        new Client2().client();
+        new PlcClient().client();
     }
 
     public String address = "";

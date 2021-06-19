@@ -83,8 +83,9 @@ public class ChatServer {
             while (flag) {
                 String msg = receive();
                 System.out.println("接收消息：" + msg);
-                if (msg != null)
+                if (msg != null) {
                     sendOthers(msg, false);
+                }
             }
         }
 

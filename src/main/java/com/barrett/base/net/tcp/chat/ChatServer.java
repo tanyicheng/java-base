@@ -16,12 +16,8 @@ import java.util.Map;
 public class ChatServer {
 
     public static void main(String[] args) {
-//        new ChatServer().chat();
+        new ChatServer().chat();
 
-        Map<Integer,String> map = new HashMap<>();
-        map.put(1,"123");
-
-        System.out.println(map.get(1));
     }
 
     public void chat() {

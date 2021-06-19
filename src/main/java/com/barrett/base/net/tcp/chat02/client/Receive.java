@@ -34,8 +34,9 @@ public class Receive implements Runnable{
     public void run() {
         while (flag){
              String msg = receive();
-             if(msg != null)
+             if(msg != null) {
                  System.out.println(msg);
+             }
         }
     }
 
