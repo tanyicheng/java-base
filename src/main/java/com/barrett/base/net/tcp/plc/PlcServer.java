@@ -34,7 +34,6 @@ public class PlcServer {
 
                 new Thread(new Channel(accept)).start();
 
-
             }
         } catch (Exception e) {
             e.printStackTrace();
