@@ -1,12 +1,20 @@
 package com.barrett.beans;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
     private Integer id;
     private String name;
     private String age;
     private String address;
     private String iphone;
     private Double num;
+
+    public Person(Integer id, String name, String age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
 
     public Person() {
     }
@@ -75,6 +83,7 @@ public class Person {
                 ", age='" + age + '\'' +
                 ", address='" + address + '\'' +
                 ", iphone='" + iphone + '\'' +
+                ", num=" + num +
                 '}';
     }
 }

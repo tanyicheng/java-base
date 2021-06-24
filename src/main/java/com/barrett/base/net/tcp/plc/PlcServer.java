@@ -1,10 +1,12 @@
 package com.barrett.base.net.tcp.plc;
 
 import com.barrett.base.net.tcp.IOUtils;
+import com.barrett.beans.Person;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -56,10 +58,12 @@ class Channel implements Runnable{
     private DataOutputStream dos = null;
     private boolean flag;
 
+
     public Channel(Socket socket) {
         this.socket = socket;
         flag = true;
         try {
+
             this.dis = new DataInputStream(socket.getInputStream());
             this.dos = new DataOutputStream(socket.getOutputStream());
         } catch (IOException e) {

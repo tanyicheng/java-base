@@ -31,6 +31,7 @@ public class Client {
                 //获取消息
                 BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
                 String msg = reader.readLine();
+
                 dos.writeUTF(msg+"---------------------------");
                 dos.flush();
                 //接收消息
