@@ -1,11 +1,12 @@
-package com.barrett.base.io;
+package com.barrett.base.io.io1;
 
-import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.Reader;
 
 /**
- * 字节数组流：输入流
+ * IO流操作步骤
  * 1、创建源
  * 2、选择流
  * 3、操作（读）
@@ -13,20 +14,19 @@ import java.io.InputStream;
  *
  * @Author created by barrett in 2020/5/14 23:05
  */
-public class ByteArrayInputStreamDemo {
+public class ReaderDemo {
 
     public static void main(String[] args) {
         test3();
-
     }
 
     static void test3() {
-        byte[] src = "Talk is cheap, show me the code.".getBytes();
+        File url = new File("io.txt");
 
-        InputStream is = null;
+        Reader is = null;
         try {
-            is = new ByteArrayInputStream(src);
-            byte[] flush = new byte[5];//缓冲容器
+            is = new FileReader(url);
+            char[] flush = new char[5];//缓冲容器
             int len;//接收长度
             while ((len = is.read(flush)) != -1) {
                 //字符数组->字符串解码的过程，传入实际长度（避免空数据    ）

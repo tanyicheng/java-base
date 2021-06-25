@@ -1,12 +1,10 @@
-package com.barrett.base.io3;
+package com.barrett.base.io.io3;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.filefilter.*;
 
 import java.io.File;
-import java.io.FileFilter;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;

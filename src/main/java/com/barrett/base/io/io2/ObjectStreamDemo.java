@@ -1,6 +1,4 @@
-package com.barrett.base.io2;
-
-import org.omg.CORBA.OBJ_ADAPTER;
+package com.barrett.base.io.io2;
 
 import java.io.*;
 

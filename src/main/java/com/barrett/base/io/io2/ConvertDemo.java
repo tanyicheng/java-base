@@ -1,6 +1,5 @@
-package com.barrett.base.io2;
+package com.barrett.base.io.io2;
 
-import javax.print.DocFlavor;
 import java.io.*;
 import java.net.URL;
 
