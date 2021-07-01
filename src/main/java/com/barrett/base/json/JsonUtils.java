@@ -28,6 +28,7 @@ public class JsonUtils {
     }
 
     public static void jsonStrToJsonObj(String str){
+        //TODO 注意对象必须要有全部参数的构造器，否则数据装换会丢失
         Person json = JSONObject.parseObject(str,Person.class);
         String name = json.getName();
 

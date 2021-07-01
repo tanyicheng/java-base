@@ -2,7 +2,9 @@ package com.barrett.util.seraphim;
 
 
 import com.barrett.util.seraphim.temp.Heartbeat;
+import com.barrett.util.seraphim.temp.ProdLineTransmitByCient;
 import com.barrett.util.seraphim.temp.WeldingLocation;
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
 
@@ -20,7 +22,7 @@ public class MainSeraphim {
     // 固定字段
     public static String[] params = {"rowId", "createdBy", "createdTime", "updateBy", "updateTime", "isValid"};
     //fixme 需要生成的类
-    public static Object object = new Heartbeat();
+    public static Object object = new ProdLineTransmitByCient();
     //fixme 表名
     public static String table;
 
@@ -29,6 +31,7 @@ public class MainSeraphim {
             Field field = object.getClass().getField("TableName");
             table = (String) field.get(object);
             System.out.println(table);
+
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -52,17 +55,21 @@ public class MainSeraphim {
 
         MainSeraphim mc = new MainSeraphim();
 
+        if(StringUtils.isEmpty(table)){
+            System.out.println("table name is null");
+            return;
+        }
         //0、建表
         createTbaleSql();
 //         1、TODO Dao
-//        mc.createDao(flag);
+        mc.createDao(flag);
 //         2、TODO Mapper
-//        daoPackage = daopath.replace("/", ".") + "." + daoClassName;
-//        mc.createMapper(flag);
+        daoPackage = daopath.replace("/", ".") + "." + daoClassName;
+        mc.createMapper(flag);
 
         // 3、生成 Service
-        mc.createIService();
-        mc.createService();
+//        mc.createIService();
+//        mc.createService();
 
         // 4、生成 Controller
 //        servicePackage = servicePath.replace("/", ".") + "." + serviceClassName;

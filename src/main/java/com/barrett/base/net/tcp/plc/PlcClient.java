@@ -26,7 +26,7 @@ public class PlcClient {
         DataInputStream dis = null;
         try {
             //建立连接
-            socket = new Socket("localhost", 8886);
+            socket = new Socket("172.16.40.253", 10088);
             //发送消息
             dos = new DataOutputStream(socket.getOutputStream());
             dis = new DataInputStream(socket.getInputStream());
@@ -71,6 +71,10 @@ public class PlcClient {
                 e.printStackTrace();
             }
         }
+    }
+
+
+    void test(){
 
     }
 }
