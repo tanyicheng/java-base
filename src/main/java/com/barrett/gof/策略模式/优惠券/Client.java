@@ -2,6 +2,10 @@ package com.barrett.gof.策略模式.优惠券;
 
 import java.math.BigDecimal;
 
+/**
+ * 参考：https://blog.csdn.net/daidaineteasy/article/details/105328020
+ * @author created by barrett in 2021/6/27 21:18
+ **/
 public class Client {
 
     public static void main(String[] args) {
