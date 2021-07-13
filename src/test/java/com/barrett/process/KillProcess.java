@@ -6,7 +6,7 @@ import java.io.IOException;
 
 /**
  * 进程 test
- * @author created by barrett in 2021/7/12 08:48
+ * @author created by barrett in 2021/7/12 08:52
  **/
 public class KillProcess {
 
