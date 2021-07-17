@@ -15,10 +15,6 @@ public class JsonUtils {
         String str = objToJsonStr();
         jsonStrToJsonObj(str);
 
-        String abc = "qweqwe qweqew oiuouo asdsad";
-        String[] split = abc.split("abcdefghijklmnopqrstuvwxyz1234567890");
-        System.out.println(split.length);
-
     }
 
     public static String objToJsonStr() {
