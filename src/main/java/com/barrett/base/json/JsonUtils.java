@@ -14,7 +14,6 @@ public class JsonUtils {
     public static void main(String[] args) {
         String str = objToJsonStr();
         jsonStrToJsonObj(str);
-
     }
 
     public static String objToJsonStr() {
