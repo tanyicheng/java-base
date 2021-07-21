@@ -18,7 +18,8 @@ public class SeraphimAPI {
     public static void main(String[] args) throws Exception {
 
 //        new SeraphimAPI().test();
-        new SeraphimAPI().get();
+//        new SeraphimAPI().get();
+        new SeraphimAPI().getLottery();
 
     }
 
@@ -75,6 +76,19 @@ public class SeraphimAPI {
 //            final JSONObject jsonObject = JSON.parseObject(data.toString());
 //            jsonObject.get("desc");
             System.out.println("data："+body.get("data").toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getLottery() {
+        try {
+//            String url = String.format("%s%s", ApiConfig.baseApi, ApiConfig.nameplateGetApi);
+            String url = "http://apis.juhe.cn/lottery/history?key=0058a7d720b7115d8b30dc18237f3a46&lottery_id=dlt&page_size=50&page=1";
+            JSONObject body = HttpUtils.INSTANCE.get(url , ApiConfig.getInstance().buildJsonHeaders());
+
+            Object data = body.get("data");
+            System.out.println();
         } catch (Exception e) {
             e.printStackTrace();
         }
