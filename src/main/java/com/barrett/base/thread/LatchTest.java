@@ -10,6 +10,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * 利用阀门，模拟高并发
+ * @author created by barrett in 2021/7/30 20:48
+ **/
 public class LatchTest {
     public static void main(String[] args) throws InterruptedException {
         Runnable taskTemp = new Runnable() {
