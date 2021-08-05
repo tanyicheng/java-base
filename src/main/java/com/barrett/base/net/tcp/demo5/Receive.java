@@ -1,4 +1,4 @@
-package com.barrett.base.net.tcp.chat02.client;
+package com.barrett.base.net.tcp.demo5;
 
 import com.barrett.base.net.tcp.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -11,9 +11,10 @@ import java.net.Socket;
 
 /**
  * 接收消息
+ *
  * @Author created by barrett in 2020/5/27 21:55
  */
-public class Receive implements Runnable{
+public class Receive implements Runnable {
     private static Logger log = LoggerFactory.getLogger(Receive.class);
 
     private DataInputStream dis;
@@ -33,30 +34,36 @@ public class Receive implements Runnable{
 
     @Override
     public void run() {
-        while (flag){
-             String msg = receive();
-             if(StringUtils.isNotEmpty(msg)) {
-                 log.info(msg);
-             }
+        while (flag) {
+            String msg = receive();
+            log.info(msg);
         }
     }
 
     //接收消息
-    private String receive(){
+    private String receive() {
         String msg = "";
         try {
-            msg= dis.readUTF();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            //读取2次
+            msg = dis.readUTF();
+            msg+=dis.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
             //有异常则释放
-            release();
+//            release();
         }
         return msg;
     }
 
     //释放消息
-    private void release(){
-        IOUtils.close(dis,socket);
+    private void release() {
+        IOUtils.close(dis, socket);
+        flag=false;
     }
 
 }

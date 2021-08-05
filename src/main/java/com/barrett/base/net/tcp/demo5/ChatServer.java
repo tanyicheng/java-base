@@ -1,4 +1,4 @@
-package com.barrett.base.net.tcp.chatObj;
+package com.barrett.base.net.tcp.demo5;
 
 import com.barrett.beans.Person;
 
@@ -6,8 +6,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -16,16 +14,53 @@ import java.net.Socket;
  * 对象传递，只能从client 传递对象，server接收对象
  * server发送字符，client 接收字符
  * 还无法实现 接收发送都通过对象实现
+ *
  * @author created by barrett in 2021/6/24 13:59
  **/
 public class ChatServer {
 
     public static void main(String[] args) {
-        new ChatServer().chat();
+        new ChatServer().createServer();
 
     }
 
-    public void chat() {
+    public void createServer() {
+        System.out.println("---服务端启动---");
+        ServerSocket server = null;
+        try {
+            //创建服务器
+            server = new ServerSocket(8888);
+
+//            Thread.sleep(20*1000);
+
+            while (true) {
+                //阻塞式等待连接
+                Socket accept = server.accept();
+                System.out.println("一个客户端连接 " + accept.getInetAddress() + ":" + accept.getPort());
+
+                new Thread(new SocketChannel(accept)).start();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (server != null) {
+                try {
+                    server.close();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+            //
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            }
+            System.out.println("start reconnect ...");
+            createServer();
+        }
+    }
+
+    public void create() {
         System.out.println("---服务端启动---");
         try {
             //创建服务器
@@ -92,7 +127,7 @@ public class ChatServer {
                 interruptedException.printStackTrace();
             }
             System.out.println("start reconnect ...");
-            chat();
+            create();
         }
     }
 
