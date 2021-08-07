@@ -12,6 +12,10 @@ import java.net.UnknownHostException;
 import org.junit.Test;
 
 /**
+ * TODO 案例参考链接 https://www.iteye.com/blog/moor212-1165414
+ * timeout 深入解析 https://blog.csdn.net/usagoole/article/details/82586369
+ * tcp粘包拆包 https://www.cnblogs.com/sunliyuan/p/10930124.html  https://blog.csdn.net/m0_37739193/article/details/78738253
+ *
  * 1.1 socket套接字缓冲区
  * Java提供了便捷的网络编程模式，尤其在套接字中，直接提供了与网络进行沟通的输入和输出流，用户对网络的操作就如同对文件操作一样简便。在客户端与服务端建立Socket连接后，
  * 客户端与服务端间的写入和写出流也同时被建立，此时即可向流中写入数据，也可以从流中读取数据。在对数据流进行操作时，很多人都会误以为，客户端和服务端的read和write应当是对应的，
