@@ -1,6 +1,9 @@
 package com.barrett.test;
 
+import com.barrett.base.net.tcp.demo5.Base5;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -8,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BaseTest {
+    public static Logger log = LoggerFactory.getLogger(BaseTest.class);
 
     public static void main(String[] args) {
         Long l = 1234567890123456789l;
@@ -23,12 +27,13 @@ public class BaseTest {
             int a = 1 / 0;
         } catch (Exception e) {
 //            e.printStackTrace();
-            StackTraceElement[] stackTrace1 = e.getStackTrace();
-            for (StackTraceElement element : stackTrace1) {
-                System.out.println(element);
-            }
-            String stackTrace = getStackTrace(e);
-            System.out.println(stackTrace);
+//            StackTraceElement[] stackTrace1 = e.getStackTrace();
+//            for (StackTraceElement element : stackTrace1) {
+//                System.out.println(element);
+//            }
+//            String stackTrace = getStackTrace(e);
+//            System.out.println(stackTrace);
+            log.error("发生异常：",e);
         }
     }
 

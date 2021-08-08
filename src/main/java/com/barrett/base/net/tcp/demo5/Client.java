@@ -20,7 +20,9 @@ public class Client {
     private static Logger log = LoggerFactory.getLogger(Client.class);
 
     public static void main(String[] args) {
-        new Client().client();
+//        new Client().client();
+        new Thread(ClientListen.getInstance(8888)).start();
+
     }
 
 
@@ -30,7 +32,7 @@ public class Client {
         try {
             //建立连接
             socket = new Socket("localhost", 8888);
-            socket.setSoTimeout(10000);
+            socket.setSoTimeout(5000);
 
             //发送消息
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
@@ -58,15 +60,15 @@ public class Client {
 //                    dos.writeUTF(" client say "+msg +" "+ i);
 //                }
 
-                //todo 把接收消息用多线程读取会出现拆包，粘包现象
-
+                //todo 把接收消息用多线程读取会出现拆包，粘包现象,like this
+//                new Thread(new Receive(socket)).start();
 //                Thread.sleep(20*1000);
                 dos.writeUTF(" client auto " + msg);
                 dos.flush();
 
                 //接收消息
-//                String data = dis.readUTF();
-//                log.info("1----" + data);
+                String data = dis.readUTF();
+                log.info("1----" + data);
 //                data = dis.readUTF();
 //                log.info("2----"+data);
 

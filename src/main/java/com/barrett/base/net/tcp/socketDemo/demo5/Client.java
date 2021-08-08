@@ -1,4 +1,4 @@
-package com.barrett.base.net.tcp;
+package com.barrett.base.net.tcp.socketDemo.demo5;
 
 
 import com.barrett.common.constants.Constants;

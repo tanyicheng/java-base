@@ -1,4 +1,4 @@
-package com.barrett.base.net.tcp.demo.demo2;
+package com.barrett.base.net.tcp.socketDemo.demo2;
 
 import java.io.IOException;
 

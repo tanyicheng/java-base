@@ -1,5 +1,7 @@
 package com.barrett.base.net.tcp.demo5;
 
+import com.barrett.base.net.tcp.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -8,49 +10,78 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class SocketChannel implements Runnable {
-    private static Logger log = LoggerFactory.getLogger(SocketChannel.class);
+public class SocketChannel extends Base5 implements Runnable {
 
     private Socket socket;
+    private boolean flag;
+    private DataInputStream dis = null;
+    private DataOutputStream dos = null;
 
-    public SocketChannel(Socket socket) {
+    public SocketChannel(Socket socket) throws IOException {
         this.socket = socket;
+        this.dis = new DataInputStream(socket.getInputStream());
+        this.dos = new DataOutputStream(socket.getOutputStream());
+        this.flag = true;
     }
 
     @Override
     public void run() {
-        //接收客户端数据
-        try {
+        createServer();
+    }
 
-            DataInputStream dis = new DataInputStream(socket.getInputStream());
-            DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-
-            boolean flag = true;
-            //加入循环，收发多次
-            while (flag) {
-                try {
-                    String data = dis.readUTF();
-                    log.info(data);
-//                    Thread.sleep(20*1000);
-                    //返回消息给客户端
-                    for (int i = 0; i < 2; i++) {
-                        //这里写完，客户端就能读取到数据
-                        dos.writeUTF(i+".server; ");
-                    }
-                    //fixme-1 这里的作用是什么
-                    dos.flush();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    //抛出异常停止循环
-                    flag = false;
+    public void createServer() {
+        //加入循环，收发多次
+        while (flag) {
+            try {
+                //接收客户端数据 test=220131 test...=27619
+                String data = receive();
+                log.info("来自客户端: " + data);
+//                Thread.sleep(1000);
+                if (StringUtils.isNotEmpty(data)) {
+                    send(data);
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+        }
 
+        try {
             //关闭资源
             dos.close();
             dis.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    //接收消息
+    private String receive() {
+        try {
+            return dis.readUTF();
+        } catch (Exception e) {
+            e.printStackTrace();
+            //有异常则释放
+            release();
+        }
+        return null;
+    }
+
+    //发送消息
+    private void send(String msg) {
+        try {
+            dos.writeUTF(msg);
+            dos.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+            //有异常则释放
+            release();
+        }
+    }
+
+    //释放消息
+    private void release() {
+        log.info("连接终止---" + socket.getLocalPort());
+        IOUtils.close(dos, dis, socket);
+        flag = false;
     }
 }

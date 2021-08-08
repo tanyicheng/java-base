@@ -1,4 +1,4 @@
-package com.barrett.base.net.tcp.demo.demo4;
+package com.barrett.base.net.tcp.socketDemo.demo4;
 
 import java.io.DataInputStream;
 

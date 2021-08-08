@@ -1,4 +1,4 @@
-package com.barrett.base.net.tcp.demo4;
+package com.barrett.base.net.tcp.异步通讯;
 
 import java.io.*;
 
@@ -17,7 +17,6 @@ public class ChatThread implements Runnable {
     }
 
     @Override
-
     public void run() {
         try (BufferedReader localReader = new BufferedReader(new InputStreamReader(System.in));
              DataOutputStream writeToRemote = new DataOutputStream(socket.getOutputStream());

@@ -1,7 +1,6 @@
 package com.barrett.base.net.tcp.demo5;
 
 import com.barrett.base.net.tcp.IOUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,17 +44,17 @@ public class Receive implements Runnable {
         String msg = "";
         try {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            //读取2次
             msg = dis.readUTF();
-            msg+=dis.readUTF();
+            //读取2次
+//            msg+=dis.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
             //有异常则释放
-//            release();
+            release();
         }
         return msg;
     }

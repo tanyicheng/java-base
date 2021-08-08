@@ -1,12 +1,9 @@
-package com.barrett.base.net.tcp;
+package com.barrett.base.net.tcp.socketDemo.demo5;
 
-
-import com.barrett.common.constants.Constants;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.channels.Channel;
 
 /**
  * 指定端口 使用serverSocket 创建服务器

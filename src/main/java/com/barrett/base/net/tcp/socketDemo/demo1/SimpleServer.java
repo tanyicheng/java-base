@@ -1,4 +1,4 @@
-package com.barrett.base.net.tcp.demo.demo1;
+package com.barrett.base.net.tcp.socketDemo.demo1;
 
 import org.junit.Test;
 
