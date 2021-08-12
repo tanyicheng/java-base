@@ -30,7 +30,7 @@ public class ChatServer {
         System.out.println("---服务端启动---");
         try {
             //创建服务器
-            ServerSocket server = new ServerSocket(8888);
+            ServerSocket server = new ServerSocket(7777);
 
             while (true) {
                 //阻塞式等待连接

@@ -57,6 +57,7 @@ public class Receive implements Runnable{
     //释放消息
     private void release(){
         IOUtils.close(dis,socket);
+        flag=false;
     }
 
 }

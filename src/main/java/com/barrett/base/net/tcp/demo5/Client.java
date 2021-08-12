@@ -21,7 +21,7 @@ public class Client {
 
     public static void main(String[] args) {
 //        new Client().client();
-        new Thread(ClientListen.getInstance(8888)).start();
+        new Thread(ClientListen.getInstance(7777)).start();
 
     }
 
@@ -31,7 +31,7 @@ public class Client {
         Socket socket;
         try {
             //建立连接
-            socket = new Socket("localhost", 8888);
+            socket = new Socket("localhost", 7777);
             socket.setSoTimeout(5000);
 
             //发送消息

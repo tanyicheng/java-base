@@ -29,7 +29,7 @@ public class ChatServer {
         ServerSocket server = null;
         try {
             //创建服务器
-            server = new ServerSocket(8888);
+            server = new ServerSocket(7777);
 
 //            Thread.sleep(20*1000);
 
