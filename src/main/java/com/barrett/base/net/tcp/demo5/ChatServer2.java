@@ -64,7 +64,7 @@ public class ChatServer2 {
         private DataInputStream dis = null;
         private DataOutputStream dos = null;
         private boolean flag;
-        private String name;
+        private String source;
 
         public Channel(Socket socket) {
             this.socket = socket;
@@ -74,11 +74,11 @@ public class ChatServer2 {
                 this.dos = new DataOutputStream(socket.getOutputStream());
 
                 //获取名称
-                this.name = receive();
+                this.source = receive();
                 //返回给自己
                 SocketTransmitData data = new SocketTransmitData(true, "10000");
                 data.setValue("欢迎您的加入！");
-                data.setTitle(name);
+                data.setSource(source);
                 this.send(data);
 
                 //对其他人说
@@ -157,7 +157,6 @@ public class ChatServer2 {
 
         /**
          * 获取自己的消息发给其他人
-         * 或私聊 规定格式  @xxx:
          *
          * @Author created by barrett in 2020/5/27 22:31
          */
@@ -175,11 +174,12 @@ public class ChatServer2 {
                 data = new SocketTransmitData(false, "0000");
             }
 
-            data.setTitle(msg.getTitle());
+            data.setSource(msg.getSource());
+            data.setTarget(msg.getTarget());
             //发送消息给另一台
             for (Channel other : allList) {
                 //发给目标
-                if (msg.getTitle().equals(other.name)) {
+                if (msg.getTarget().equals(other.source)) {
                     other.send(data);
                     break;
                 }

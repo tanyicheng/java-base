@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author created by barrett in 2021/6/25 14:59
  **/
 public class SocketTransmitData implements Serializable {
-    //读取地址
+    //读取地址 | 堆栈号
     private String address;
     //读取长度
     private short length;
@@ -19,43 +19,51 @@ public class SocketTransmitData implements Serializable {
     private String type;
     //数据包类型
     private String dataType;
-    private String title;
+    //数据包来源，人工上下料客户端中用作线别
+    private String source;
+    //数据包目标地
+    private String target;
     private Object object;
     //方式，读、写
     @Deprecated
     private String method;
 
 
-    public SocketTransmitData(boolean success, String dataType) {
+    public SocketTransmitData(boolean success) {
         this.success = success;
-        this.dataType = dataType;
     }
 
     public SocketTransmitData(String type) {
         this.type = type;
     }
 
-    public SocketTransmitData(String dataType, String address, String type) {
+    public SocketTransmitData(boolean success, String dataType) {
+        this.success = success;
+        this.dataType = dataType;
+    }
+
+    public SocketTransmitData(String dataType,String address, String type) {
         this.address = address;
         this.type = type;
         this.dataType=dataType;
     }
 
-    public SocketTransmitData(String dataType, String address, String type, String value) {
+    public SocketTransmitData(String dataType,String address, String type, String value) {
         this.address = address;
         this.value = value;
         this.type = type;
         this.dataType=dataType;
     }
 
-    public SocketTransmitData(String address, short length, String value, boolean success, String type, String dataType, String title, Object object) {
+    public SocketTransmitData(String address, short length, String value, boolean success, String type, String dataType, String source, String target, Object object) {
         this.address = address;
         this.length = length;
         this.value = value;
         this.success = success;
         this.type = type;
         this.dataType = dataType;
-        this.title = title;
+        this.source = source;
+        this.target = target;
         this.object = object;
     }
 
@@ -67,12 +75,20 @@ public class SocketTransmitData implements Serializable {
         this.object = object;
     }
 
-    public String getTitle() {
-        return title;
+    public String getSource() {
+        return source;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
     }
 
     public String getDataType() {
@@ -132,7 +148,8 @@ public class SocketTransmitData implements Serializable {
                 ", success=" + success +
                 ", type='" + type + '\'' +
                 ", dataType='" + dataType + '\'' +
-                ", title='" + title + '\'' +
+                ", source='" + source + '\'' +
+                ", target='" + target + '\'' +
                 ", object=" + object +
                 '}';
     }
