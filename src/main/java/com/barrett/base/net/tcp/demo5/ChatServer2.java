@@ -47,7 +47,6 @@ public class ChatServer2 {
                 Channel channel = new Channel(accept);
                 allList.add(channel);//管理所有的客户端
                 new Thread(channel).start();
-
             }
         } catch (Exception e) {
             e.printStackTrace();
