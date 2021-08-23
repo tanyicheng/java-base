@@ -32,6 +32,7 @@ public class ChatServer {
 
 //            Thread.sleep(20*1000);
 
+
             while (true) {
                 //阻塞式等待连接
                 Socket accept = server.accept();
