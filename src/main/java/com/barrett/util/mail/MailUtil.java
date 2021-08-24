@@ -33,6 +33,16 @@ public class MailUtil {
     private static String mailSender = "xiaoyifam@163.com";
     private static String MailAuthorization = "";
 
+    public static void main(String[] args) {
+        //接收人账号，主题，内容
+        //sendEmail("18115059001@163.com", "java测试", "恭喜发财");
+        // i_1felse@163.com
+//            sendEmailSll("yicheng.tan@seraphim-energy.com", "测试标题", "上线无bug");
+//        sendEmailSll("65797706@qq.com", "测试标题", "上线无bug");
+        Inclass.sendEmail("yicheng.tan@seraphim-energy.com", "邮件发送测试", "恭喜发财");
+    }
+
+
     static class Inclass implements Runnable {
         private Message msg;
         private boolean flag = true;//是否出现异常，如果有异常则循环调用其他发件账号
@@ -40,6 +50,7 @@ public class MailUtil {
         private Inclass(Message msg) {
             this.msg = msg;
         }
+
 
         @Override
         public void run() {
@@ -174,14 +185,6 @@ public class MailUtil {
             }
         }
 
-        public static void main(String[] args) {
-            //接收人账号，主题，内容
-            //sendEmail("18115059001@163.com", "java测试", "恭喜发财");
-            // i_1felse@163.com
-//            sendEmailSll("yicheng.tan@seraphim-energy.com", "测试标题", "上线无bug");
-//        sendEmailSll("65797706@qq.com", "测试标题", "上线无bug");
-            sendEmail("yicheng.tan@seraphim-energy.com", "java测试", "恭喜发财");
-        }
 
         /**
          * **退信代码说明**：
