@@ -36,7 +36,6 @@ public class MailUtil {
     public static void main(String[] args) {
         //接收人账号，主题，内容
         //sendEmail("18115059001@163.com", "java测试", "恭喜发财");
-        // i_1felse@163.com
 //            sendEmailSll("yicheng.tan@seraphim-energy.com", "测试标题", "上线无bug");
 //        sendEmailSll("65797706@qq.com", "测试标题", "上线无bug");
         Inclass.sendEmail("yicheng.tan@seraphim-energy.com", "邮件发送测试", "恭喜发财");
