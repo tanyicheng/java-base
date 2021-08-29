@@ -24,6 +24,7 @@ public class Thread01 {
         }
     }
 
+
     /**
      * 继承方式实现
      *
