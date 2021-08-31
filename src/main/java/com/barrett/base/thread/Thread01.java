@@ -10,7 +10,6 @@ public class Thread01 {
     public static void main(String[] args) {
 //        new MyThread().start();
 //        new MyThead2().run();
-
         test(100000, 1);
     }
 
