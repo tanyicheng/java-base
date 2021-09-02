@@ -1,9 +1,7 @@
 package com.barrett.util.seraphim;
 
 
-import com.barrett.util.seraphim.temp.Heartbeat;
-import com.barrett.util.seraphim.temp.ProdLineTransmitByCient;
-import com.barrett.util.seraphim.temp.WeldingLocation;
+import com.barrett.util.seraphim.temp.VirtualBarCode;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
@@ -22,7 +20,7 @@ public class MainSeraphim {
     // 固定字段
     public static String[] params = {"rowId", "createdBy", "createdTime", "updateBy", "updateTime", "isValid"};
     //fixme 需要生成的类
-    public static Object object = new ProdLineTransmitByCient();
+    public static Object object = new VirtualBarCode();
     //fixme 表名
     public static String table;
 

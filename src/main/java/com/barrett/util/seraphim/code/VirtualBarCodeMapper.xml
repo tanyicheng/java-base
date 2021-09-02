@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="src.main.java.com.barrett.util.seraphim.code.VirtualBarCodeMapper">
+<resultMap id="BaseResultMap" type="com.barrett.util.seraphim.temp.VirtualBarCode">
+  <id column="row_id" property="rowId"/>
+  <result column="created_by" property="createdBy" />
+  <result column="created_time" property="createdTime" />
+  <result column="update_by" property="updateBy" />
+  <result column="update_time" property="updateTime" />
+  <result column="virtualbarcode" property="virtualbarcode" />
+  <result column="series_welding" property="seriesWelding" />
+  <result column="client_no" property="clientNo" />
+  <result column="pbj_no" property="pbjNo" />
+  <result column="batch_no" property="batchNo" />
+</resultMap>
+
+<sql id="Base_Column_List">
+  t.row_id, t.created_by, t.created_time, t.update_by, t.update_time, t.is_valid, t.virtualbarcode, t.series_welding, t.client_no, t.pbj_no, t.batch_no
+</sql>
+
+<select id="selectVirtualBarCodeList" resultMap="BaseResultMap">
+  select <include refid="Base_Column_List"/> from mp_virtual_bar_code t
+  <where>
+     <if test="params.virtualbarcode != null and params.virtualbarcode !=''">
+      and t.virtualbarcode = #{params.virtualbarcode}
+    </if>
+    <if test="params.seriesWelding != null and params.seriesWelding !=''">
+      and t.series_welding = #{params.seriesWelding}
+    </if>
+    <if test="params.clientNo != null and params.clientNo !=''">
+      and t.client_no = #{params.clientNo}
+    </if>
+    <if test="params.pbjNo != null and params.pbjNo !=''">
+      and t.pbj_no = #{params.pbjNo}
+    </if>
+    <if test="params.batchNo != null and params.batchNo !=''">
+      and t.batch_no = #{params.batchNo}
+    </if>
+  </where>
+</select>
+
+<insert id="insertVirtualBarCode" parameterType="com.barrett.util.seraphim.temp.VirtualBarCode">
+  insert into mp_virtual_bar_code (
+     `created_by`, `created_time`, `update_by`, `update_time`, `is_valid`, `virtualbarcode`, `series_welding`, `client_no`, `pbj_no`, `batch_no`)
+  values (
+     #{createdBy},#{createdTime},#{updateBy},#{updateTime},#{isValid},#{virtualbarcode},#{seriesWelding},#{clientNo},#{pbjNo},#{batchNo})
+</insert>
+
+<update id="updateVirtualBarCode" parameterType="com.barrett.util.seraphim.temp.VirtualBarCode">
+  update mp_virtual_bar_code
+  <set>
+     <if test="virtualbarcode != null and virtualbarcode !=''">
+      `virtualbarcode` = #{virtualbarcode},
+    </if>
+    <if test="seriesWelding != null and seriesWelding !=''">
+      `series_welding` = #{seriesWelding},
+    </if>
+    <if test="clientNo != null and clientNo !=''">
+      `client_no` = #{clientNo},
+    </if>
+    <if test="pbjNo != null and pbjNo !=''">
+      `pbj_no` = #{pbjNo},
+    </if>
+    <if test="batchNo != null and batchNo !=''">
+      `batch_no` = #{batchNo},
+    </if>
+    <if test="createdBy != null and createdBy !=''">
+      `created_by` = #{createdBy},
+    </if>
+    <if test="createdTime != null and createdTime !=''">
+      `created_time` = #{createdTime},
+    </if>
+    <if test="updateBy != null and updateBy !=''">
+      `update_by` = #{updateBy},
+    </if>
+    <if test="updateTime != null and updateTime !=''">
+      `update_time` = #{updateTime},
+    </if>
+  </set>
+  where row_id = #{rowId}
+</update>
+
+<select id="getVirtualBarCodeById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  select <include refid="Base_Column_List"/>
+  from mp_virtual_bar_code t
+  where t.row_id = #{id}
+</select>
+
+<select id="getUpdateRecordById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  select <include refid="Base_Column_List"/>
+  from mp_virtual_bar_code t
+  where t.row_id = #{id}
+</select>
+
+<insert id="insertBatch" parameterType="com.barrett.util.seraphim.temp.VirtualBarCode">
+  insert into mp_virtual_bar_code (
+     `created_by`, `created_time`, `update_by`, `update_time`, `is_valid`, `virtualbarcode`, `series_welding`, `client_no`, `pbj_no`, `batch_no`)
+        values 
+        <foreach collection="list" item="item" index="index" separator=",">
+        (
+     #{item.createdBy},#{item.createdTime},#{item.updateBy},#{item.updateTime},#{item.isValid},#{item.virtualbarcode},#{item.seriesWelding},#{item.clientNo},#{item.pbjNo},#{item.batchNo})
+        </foreach>
+    </insert>
+
+<delete id="delVirtualBarCodeByIds" >
+   delete from mp_virtual_bar_code
+   where ROW_ID in
+   <foreach item="rowId" collection="array" open="(" separator="," close=")">
+       #{rowId}
+   </foreach>
+</delete>
+
+</mapper>
