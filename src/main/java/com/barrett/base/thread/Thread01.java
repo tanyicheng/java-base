@@ -9,15 +9,15 @@ public class Thread01 {
 
     public static void main(String[] args) {
 //        new MyThread().start();
-//        new MyThead2().run();
-        test(100000, 1);
+        new MyThead2().run();
+//        test(100000, 1);
     }
 
     public static void test(double money, int i) {
         if (i <= 7) {
-            System.out.println("第"+i+"年"+money);
+            System.out.println("第" + i + "年" + money);
             money = money * 1.5;
-            test(money,++i);
+            test(money, ++i);
         } else {
             return;
         }
