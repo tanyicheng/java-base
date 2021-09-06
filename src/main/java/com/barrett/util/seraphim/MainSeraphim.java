@@ -60,10 +60,10 @@ public class MainSeraphim {
         //0、建表
         createTbaleSql();
 //         1、TODO Dao
-        mc.createDao(flag);
+//        mc.createDao(flag);
 //         2、TODO Mapper
-        daoPackage = daopath.replace("/", ".") + "." + daoClassName;
-        mc.createMapper(flag);
+//        daoPackage = daopath.replace("/", ".") + "." + daoClassName;
+//        mc.createMapper(flag);
 
         // 3、生成 Service
 //        mc.createIService();
