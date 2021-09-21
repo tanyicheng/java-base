@@ -12,6 +12,10 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
+/**
+ * 数据包
+ * @author created by barrett in 2021/9/21 21:59
+ **/
 public class TestNonBlockingNIO2 {
 	
 	@Test

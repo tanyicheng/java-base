@@ -95,6 +95,10 @@ public class TestChannel {
 		System.out.println(cBuf3.toString());
 	}
 	
+	/**
+	 * 查看所有编码
+	 * @author created by barrett in 2021/9/20 20:36
+	 **/
 	@Test
 	public void test5(){
 		Map<String, Charset> map = Charset.availableCharsets();
