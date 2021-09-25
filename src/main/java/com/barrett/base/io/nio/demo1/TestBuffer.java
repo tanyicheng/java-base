@@ -1,4 +1,4 @@
-package com.barrett.nio.demo1;
+package com.barrett.base.io.nio.demo1;
 
 import java.nio.ByteBuffer;
 

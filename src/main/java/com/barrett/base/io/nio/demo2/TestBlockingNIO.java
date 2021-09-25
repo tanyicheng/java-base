@@ -1,4 +1,4 @@
-package com.barrett.nio.demo2;
+package com.barrett.base.io.nio.demo2;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

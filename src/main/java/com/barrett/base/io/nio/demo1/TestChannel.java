@@ -1,4 +1,4 @@
-package com.barrett.nio.demo1;
+package com.barrett.base.io.nio.demo1;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -9,7 +9,6 @@ import java.nio.CharBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileChannel.MapMode;
-import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CharsetEncoder;
