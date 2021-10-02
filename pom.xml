@@ -192,6 +192,18 @@
             <artifactId>commons-email</artifactId>
             <version>1.4</version>
         </dependency>
+        <!-- 发送邮件 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <!-- tio -->
+        <dependency>
+            <groupId>org.t-io</groupId>
+            <artifactId>tio-core</artifactId>
+            <version>3.1.0.v20180705-RELEASE</version>
+        </dependency>
 
     </dependencies>
 
