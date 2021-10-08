@@ -18,8 +18,8 @@ public class Client {
         System.out.println("---客户端启动---");
         Socket socket;
         try {
-            //建立连接
-            socket = new Socket("172.16.40.100", 8888);
+            //建立连接 172.16.40.100
+            socket = new Socket("localhost", 8888);
 
             //发送消息
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
