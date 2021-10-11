@@ -24,7 +24,6 @@ public class ChatServer {
         try {
             //创建服务器
             ServerSocket server = new ServerSocket(8888);
-
             //加入多线程
             while (true) {
                 //阻塞式等待连接
