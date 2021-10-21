@@ -29,7 +29,7 @@ public class ChatServer {
             while (true) {
                 //阻塞式等待连接
                 Socket accept = server.accept();
-                System.out.println("一个客户端连接 "+accept.getInetAddress()+":"+accept.getPort());
+                System.out.println("一个客户端连接 " + accept.getInetAddress() + ":" + accept.getPort());
 
 
                 new Thread(() -> {
@@ -43,7 +43,7 @@ public class ChatServer {
                         while (flag) {
                             try {
                                 String data = null;
-                                data = dis.readUTF();
+                                data = dis.readUTF();// FIXME-2: 2021/10/21 这里在客户端关闭时会获取到一条空的消息，是异常，还是属于正常情况？
                                 System.out.println("接收到消息：" + data);
                                 //返回消息给客户端
                                 dos.writeUTF("来自服务端");
@@ -51,17 +51,14 @@ public class ChatServer {
                             } catch (IOException e) {
                                 e.printStackTrace();
                                 //抛出异常停止循环
-                                flag=false;
+                                flag = false;
                             }
                         }
 
                         //关闭资源
-                        if (dos != null)
-                            dos.close();
-                        if (dis != null)
-                            dis.close();
-                        if (server != null)
-                            server.close();
+                        if (dos != null) dos.close();
+                        if (dis != null) dis.close();
+                        if (server != null) server.close();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

@@ -26,19 +26,22 @@ public class Client {
             DataInputStream dis = new DataInputStream(socket.getInputStream());
 
             boolean flag = true;
-            //加入循环，收发多次
-            while (flag) {
-                //获取消息
-                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-                String msg = reader.readLine();
+//            //加入循环，收发多次
+//            while (flag) {
+//                //获取消息
+//                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//                String msg = reader.readLine();
+//
+//                dos.writeUTF(msg+"---------------------------");
+//                dos.flush();
+//                //接收消息
+//                String data = dis.readUTF();
+//                System.out.println("接收服务端消息" + data);
+//            }
 
-                dos.writeUTF(msg+"---------------------------");
-                dos.flush();
-                //接收消息
-                String data = dis.readUTF();
-                System.out.println("接收服务端消息" + data);
+            dos.writeUTF("5678");
+            dos.flush();
 
-            }
             //释放资源
             dis.close();
             dos.close();

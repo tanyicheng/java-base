@@ -1,7 +1,11 @@
 package com.barrett.base.net.tcp.plc;
 
+import com.alibaba.fastjson.JSONObject;
 import com.barrett.base.net.tcp.IOUtils;
 import com.barrett.beans.Person;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -9,6 +13,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Map;
 
 
 /**
@@ -19,7 +24,6 @@ public class PlcServer {
 
     public static void main(String[] args) {
         new PlcServer().server();
-
     }
 
     public void server() {
@@ -70,13 +74,17 @@ class Channel implements Runnable{
             e.printStackTrace();
         }
     }
+    private static Logger log = LoggerFactory.getLogger(PlcServer.class);
 
     @Override
     public void run() {
         while (flag) {
             String msg = receive();
-            System.out.println("来自客户端：" + msg);
-            if (msg != null) {
+            log.info("来自客户端：" + msg);
+            if (StringUtils.isNotEmpty(msg)) {
+//                Map<String,String> map = JSONObject.parseObject(msg,Map.class);
+//                System.out.println("json对象转换取值name："+map.get("name"));
+
                 int a = (int) (Math.random() * 100);
                 send("->"+a);
             }

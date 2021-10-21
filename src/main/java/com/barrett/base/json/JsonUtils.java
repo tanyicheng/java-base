@@ -19,8 +19,10 @@ public class JsonUtils {
     public static void main(String[] args) {
 //        String str = objToJsonStr();
 //        jsonStrToJsonObj(str);
-        String str = listToJsonStr();
-        jsonStrToList(str);
+//        String str = listToJsonStr();
+//        jsonStrToList(str);
+
+        jsonStrToMap(mapToJsonStr());
     }
 
     public static String objToJsonStr() {
@@ -46,6 +48,26 @@ public class JsonUtils {
         String json = JSON.toJSONString(list);//关键
         System.out.println(json);
         return json;
+    }
+
+    public static String mapToJsonStr() {
+
+        Map<String,String> map = new HashMap<>();
+        map.put("name","aa");
+        map.put("age","100");
+
+        String json = JSON.toJSONString(map);
+        System.out.println(json);
+        return json;
+    }
+
+    public static void jsonStrToMap(String str){
+        //TODO 注意对象必须要有全部参数的构造器，否则数据装换会丢失
+        Map<String,String> map = JSONObject.parseObject(str,Map.class);
+        for (String key : map.keySet()) {
+            System.out.println(map.get(key));
+        }
+
     }
 
     public static void jsonStrToJsonObj(String str){
