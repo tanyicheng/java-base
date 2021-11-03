@@ -21,6 +21,7 @@ public class ChatServer {
 
     public void chat() {
         System.out.println("---服务端启动---");
+
         try {
             //创建服务器
             ServerSocket server = new ServerSocket(8888);
