@@ -31,7 +31,6 @@ public class ChatServer {
                 Socket accept = server.accept();
                 System.out.println("一个客户端连接 " + accept.getInetAddress() + ":" + accept.getPort());
 
-
                 new Thread(() -> {
                     //接收客户端数据
                     try {
