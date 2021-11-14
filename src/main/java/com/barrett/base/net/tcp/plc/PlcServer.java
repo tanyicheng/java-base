@@ -84,7 +84,6 @@ class Channel implements Runnable{
             if (StringUtils.isNotEmpty(msg)) {
 //                Map<String,String> map = JSONObject.parseObject(msg,Map.class);
 //                System.out.println("json对象转换取值name："+map.get("name"));
-
                 int a = (int) (Math.random() * 100);
                 send("->"+a);
             }
