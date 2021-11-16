@@ -39,7 +39,7 @@ public class Client {
 //                System.out.println("接收服务端消息" + data);
 //            }
 
-            dos.writeUTF("5678");
+            dos.writeUTF("7890");
             dos.flush();
 
             //释放资源
