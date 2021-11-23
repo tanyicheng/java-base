@@ -1,5 +1,7 @@
 package com.barrett.base.正则表达式;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * 使用java自带方法，判断数字和字母
  *
@@ -9,7 +11,7 @@ public class PatternDemo1 {
 
     public static void main(String[] args) {
         PatternDemo1 p = new PatternDemo1();
-        String str = "KH00099";
+        String str = "AA";
         String number = p.getNumberStr(str);
 //        System.out.println(str.replace(number,""));
 //        System.out.println(number);
@@ -45,17 +47,20 @@ public class PatternDemo1 {
     }
 
     public String getNextNumber(String str) {
-        int number = Integer.parseInt(str);
-        StringBuilder code = new StringBuilder();
-        //序列号自增
-        number += 1;
-        //如果转换数字以后的长度和传参一致，则表示数字开头有0存在，需要补位
-        if (Integer.toString(number).length() != str.length()) {
-            int dif = str.length() - Integer.toString(number).length();
-            for (int i = 0; i < dif; i++) {
-                code.append("0");
+        if(StringUtils.isNotEmpty(str)){
+            int number = Integer.parseInt(str);
+            StringBuilder code = new StringBuilder();
+            //序列号自增
+            number += 1;
+            //如果转换数字以后的长度和传参一致，则表示数字开头有0存在，需要补位
+            if (Integer.toString(number).length() != str.length()) {
+                int dif = str.length() - Integer.toString(number).length();
+                for (int i = 0; i < dif; i++) {
+                    code.append("0");
+                }
             }
+            return code.toString() + number;
         }
-        return code.toString() + number;
+        return "";
     }
 }
