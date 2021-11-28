@@ -59,7 +59,6 @@ public class PatternDemo1 {
                     code.append("0");
                 }
             }
-
             return code.toString() + number;
         }
         return "";
