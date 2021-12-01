@@ -31,9 +31,9 @@ public class BaseTest {
 //            for (StackTraceElement element : stackTrace1) {
 //                System.out.println(element);
 //            }
-//            String stackTrace = getStackTrace(e);
-//            System.out.println(stackTrace);
-            log.error("发生异常：",e);
+            String stackTrace = getStackTrace(e);
+            System.out.println(stackTrace);
+//            log.error("发生异常：",e);
         }
     }
 
