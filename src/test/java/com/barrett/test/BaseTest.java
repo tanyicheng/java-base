@@ -8,7 +8,9 @@ import org.slf4j.LoggerFactory;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class BaseTest {
     public static Logger log = LoggerFactory.getLogger(BaseTest.class);
@@ -58,5 +60,20 @@ public class BaseTest {
         } finally {
             pw.close();
         }
+    }
+
+    public static List<String> dzList(List<String> list){
+        list.forEach((item)->{
+            item +="aaa";
+        });
+        return null;
+    }
+
+    @Test
+    public void test3(){
+        List<String> list = new ArrayList<>();
+        list.add("245");
+        list.add("246");
+        dzList(list);
     }
 }
