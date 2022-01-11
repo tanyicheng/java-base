@@ -1,7 +1,6 @@
 package com.barrett.test;
 
-import com.barrett.util.DateUtil;
-import com.sun.deploy.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
