@@ -23,7 +23,7 @@ import java.util.Random;
 
 /**
  * 生成二维码，可加logo
- * @author created by barrett in 2021/12/11 08:25
+ * @author created by barrett in 2021/12/11 08:28
  **/
 public class QRCodeUtils {
     private static final String CHARSET = "utf-8";
