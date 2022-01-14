@@ -26,7 +26,6 @@ public class Demeter1 {
 		//输出学院的员工id 和  学校总部的员工信息
 		schoolManager.printAllEmployee(new CollegeManager());
 	}
-
 }
 
 
