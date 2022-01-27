@@ -22,8 +22,9 @@ public class ExcelRead {
 
     private static final String XLS = "xls";
     private static final String XLSX = "xlsx";
-    private static final String path = "/Users/snipe/Documents/mmkv/temp/123.xlsx";
+//    private static final String path = "/Users/snipe/Documents/mmkv/temp/123.xlsx";
 
+    private static final String path = "D:\\Temp\\excel\\old.xlsm";
 
     public static void main(String[] args) throws Exception {
 //        readExecl();
@@ -33,14 +34,49 @@ public class ExcelRead {
 //            System.out.println(item);
 //        });
 
-		getColumn();
+		getColumn2();
+    }
+
+
+    public static void getColumn2() throws Exception {
+
+        FileInputStream  is = new FileInputStream(path);
+
+        Workbook workbook = getWorkbook(is, XLSX);
+        Sheet sheet = workbook.getSheetAt(0);
+        if (sheet == null) {
+            System.out.println("sheet 数量为0");
+            return;
+        }
+        is.close();
+        //遍历该sheet的行
+//        Row row = sheet.getRow(0);
+//        short lastCellNum = row.getLastCellNum();
+//        System.out.println(lastCellNum);
+        // 获取第一行数据
+        int firstRowNum = sheet.getFirstRowNum();
+        Row row1 = sheet.getRow(firstRowNum);
+        //列
+        Cell cell1 = row1.getCell(1);
+        System.out.println(cell1.getStringCellValue());
+        cell1.setCellValue("你好");
+
+        // 首先要创建一个原始Excel文件的输出流对象！
+        FileOutputStream excelFileOutPutStream = new FileOutputStream("D:\\Temp\\excel\\9002.xlsm");
+        // 将最新的 Excel 文件写入到文件输出流中，更新文件信息！
+        workbook.write(excelFileOutPutStream);
+        // 执行 flush 操作， 将缓存区内的信息更新到文件上
+        excelFileOutPutStream.flush();
+        // 使用后，及时关闭这个输出流对象， 好习惯，再强调一遍！
+        excelFileOutPutStream.close();
+        workbook.close();
     }
 
     //获取excel 列
     public static short getColumn() throws Exception {
 
-//        InputStream is = new FileInputStream(path);
-        BufferedInputStream is = new BufferedInputStream(new FileInputStream(new File(path)));
+        InputStream is = new FileInputStream(path);
+//        BufferedInputStream is = new BufferedInputStream(new FileInputStream(new File(path)));
 
 //        FileMagic fileMagic = FileMagic.valueOf(is);
 //        if (fileMagic.equals(FileMagic.OOXML)) { // XLSX
