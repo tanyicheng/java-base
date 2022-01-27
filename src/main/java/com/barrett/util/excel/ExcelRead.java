@@ -2,13 +2,12 @@ package com.barrett.util.excel;
 
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.poifs.filesystem.FileMagic;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.util.StringUtils;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +22,7 @@ public class ExcelRead {
 
     private static final String XLS = "xls";
     private static final String XLSX = "xlsx";
-    private static final String path = "D:\\Temp\\Serial Numbers.xlsx";
+    private static final String path = "/Users/snipe/Documents/mmkv/temp/123.xlsx";
 
 
     public static void main(String[] args) throws Exception {
@@ -40,9 +39,17 @@ public class ExcelRead {
     //获取excel 列
     public static short getColumn() throws Exception {
 
-        InputStream stream = new FileInputStream(path);
+//        InputStream is = new FileInputStream(path);
+        BufferedInputStream is = new BufferedInputStream(new FileInputStream(new File(path)));
 
-        Workbook wb = getWorkbook(stream, XLSX);
+//        FileMagic fileMagic = FileMagic.valueOf(is);
+//        if (fileMagic.equals(FileMagic.OOXML)) { // XLSX
+//            System.out.println("xlsx");
+//        } else if (fileMagic.equals(FileMagic.OLE2)) {// XLS
+//            System.out.println("xls");
+//        }
+
+        Workbook wb = getWorkbook(is, XLSX);
         Sheet sheet = wb.getSheetAt(0);
         if (sheet == null) {
             return 0;
