@@ -17,14 +17,15 @@ import static org.apache.poi.ss.usermodel.CellType.NUMERIC;
 
 /**
  * 读excel
+ * TODO Excel 公式小技巧 f9查看，POI设置公式，强制执行，待测试
  */
 public class ExcelRead {
 
     private static final String XLS = "xls";
     private static final String XLSX = "xlsx";
-//    private static final String path = "/Users/snipe/Documents/mmkv/temp/123.xlsx";
+    private static final String path = "/Users/snipe/Documents/mmkv/temp/500.xlsm";
 
-    private static final String path = "D:\\Temp\\excel\\old.xlsm";
+//    private static final String path = "D:\\Temp\\excel\\old.xlsm";
 
     public static void main(String[] args) throws Exception {
 //        readExecl();
@@ -36,6 +37,7 @@ public class ExcelRead {
 
 		getColumn2();
     }
+
 
 
     public static void getColumn2() throws Exception {
@@ -58,11 +60,18 @@ public class ExcelRead {
         Row row1 = sheet.getRow(firstRowNum);
         //列
         Cell cell1 = row1.getCell(1);
-        System.out.println(cell1.getStringCellValue());
-        cell1.setCellValue("你好");
+        System.out.println(cell1.getNumericCellValue());
+//        System.out.println(cell1.getCellFormula());
+//        cell1.setCellValue("你好");
+
+        Cell cell2 = row1.createCell(5);
+//        cell2.setCellValue("=SUM(A1:A4)");
+        cell2.setCellFormula("Addnumber(A1,B1)");
+//        cell2.setCellFormula("Code128B(A1)");
+        workbook.setForceFormulaRecalculation(true);
 
         // 首先要创建一个原始Excel文件的输出流对象！
-        FileOutputStream excelFileOutPutStream = new FileOutputStream("D:\\Temp\\excel\\9002.xlsm");
+        FileOutputStream excelFileOutPutStream = new FileOutputStream("/Users/snipe/Documents/mmkv/temp/new500.xlsm");
         // 将最新的 Excel 文件写入到文件输出流中，更新文件信息！
         workbook.write(excelFileOutPutStream);
         // 执行 flush 操作， 将缓存区内的信息更新到文件上
