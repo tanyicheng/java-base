@@ -2,6 +2,7 @@ package com.barrett.util.excel;
 
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.CreationHelper;
+import org.apache.poi.ss.util.CellRangeAddress;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -10,7 +11,8 @@ import java.util.*;
 public class ExcelWrite {
     public static void main(String[] args) throws Exception {
 
-        writeToExcel(null);
+//        writeToExcel(null);
+        baseWrite();
     }
 
     public static void writeToExcel(List<Map<String, Object>> list) throws Exception {
@@ -61,7 +63,8 @@ public class ExcelWrite {
 
 
         //最后写回磁盘
-        FileOutputStream out = new FileOutputStream("D:\\Temp\\SerialNumbersEnd.xlsx");
+        FileOutputStream out = new FileOutputStream("/Users/snipe/Documents/mmkv/temp/test.xlsx");
+//        FileOutputStream out = new FileOutputStream("D:\\Temp\\SerialNumbersEnd.xlsx");
         wb.write(out);
         out.close();
 
@@ -76,7 +79,7 @@ public class ExcelWrite {
      * @Date 2020/8/10 15:35
      * @Param
      **/
-    public static void baseWrite() throws Exception {
+    public static void baseWrite2() throws Exception {
         //创建一个工作簿 即excel文件,再在该文件中创建一个sheet
         HSSFWorkbook wb = new HSSFWorkbook();
         HSSFSheet sheet = wb.createSheet("第一个sheet");
@@ -106,7 +109,35 @@ public class ExcelWrite {
         cell.setCellStyle(style);
 
         //最后写回磁盘
-        FileOutputStream out = new FileOutputStream("D:\\Temp\\SerialNumbersEnd.xlsx");
+        FileOutputStream out = new FileOutputStream("/Users/snipe/Documents/mmkv/temp/base.xlsx");
+        wb.write(out);
+        out.close();
+
+        System.out.println("写完了!");
+    }
+
+    public static void baseWrite() throws Exception {
+        //创建一个工作簿 即excel文件,再在该文件中创建一个sheet
+        HSSFWorkbook wb = new HSSFWorkbook();
+        HSSFSheet sheet = wb.createSheet("第一个sheet");
+
+        //在sheet中创建一行
+        HSSFRow row = sheet.createRow(0);
+
+        //在该行写入各种类型的数据
+//        row.createCell(0).setCellValue(true);
+//        row.createCell(1).setCellValue("钟林森");
+//        row.createCell(2).setCellValue(23);
+
+
+//        HSSFRow row2 = sheet.createRow(1);
+
+        sheet.addMergedRegion(new CellRangeAddress(0,2,0,0));
+        sheet.createRow(0).createCell(0).setCellValue("base");
+
+
+        //最后写回磁盘
+        FileOutputStream out = new FileOutputStream("/Users/snipe/Documents/mmkv/temp/base.xlsx");
         wb.write(out);
         out.close();
 

@@ -1,5 +1,6 @@
 package com.barrett.util.excel;
 
+
 import java.io.IOException;
 import java.util.*;
 
@@ -20,7 +21,7 @@ public class ExcelUtil {
         short column = ExcelRead.getColumn();
 
         for (int i = 0; i < column; i++) {
-            Map<String, Object> result = read.readExeclByRowCell(0, i);
+            Map<String, Object> result = ExcelRead.readExeclByRowCell(0, i);
 
             String bl = (String) result.get("bl");
             String container = (String) result.get("container");
@@ -35,6 +36,7 @@ public class ExcelUtil {
             dataMap.put("serialNumber",serialNumber);
             dataMap.put("set",data);
 
+//            new Region();
             //sheet
             Map<String,Object> map = new HashMap();
             map.put("name","sheet"+(i+1)+"");
