@@ -2,6 +2,7 @@ package com.barrett.util.seraphim;
 
 
 import com.barrett.util.seraphim.temp.VirtualBarCode;
+import com.barrett.util.seraphim.temp.WorkFlowModel;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
@@ -20,7 +21,7 @@ public class MainSeraphim {
     // 固定字段
     public static String[] params = {"rowId", "createdBy", "createdTime", "updateBy", "updateTime", "isValid"};
     //fixme 需要生成的类
-    public static Object object = new VirtualBarCode();
+    public static Object object = new WorkFlowModel();
     //fixme 表名
     public static String table;
 
@@ -37,7 +38,7 @@ public class MainSeraphim {
 
     //批量插入时主表id,这里主要用来mapper.xml中替换关联的id
     //fixme 手动修改字段
-    public static String parentId = "ivDevicesId";
+    public static String parentId = "parentId";
 
     //flag = 2 需要增加批量插入; 手动=1
     static int flag = 2;

@@ -79,7 +79,7 @@ public class SeraphimMapper {
                 + "  <id column=\"row_id\" property=\"rowId\"/>\n";
         // 添加固定字段
         for (String s : fixParam) {
-            if (!s.contains("id")) {
+            if (!s.contains("row_id")) {
                 String[] arr = s.split("=");
                 result += "  <result column=\"" + arr[1] + "\" property=\"" + arr[0] + "\" />\n";
             }
