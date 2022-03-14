@@ -1,6 +1,7 @@
 package com.barrett.test;
 
 import com.barrett.base.net.tcp.demo5.Base5;
+import com.barrett.gof.编程式事物封装.TranTemplate;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -75,5 +76,15 @@ public class BaseTest {
         list.add("245");
         list.add("246");
         dzList(list);
+    }
+    @Test
+    public void testTr(){
+        TranTemplate tr = new TranTemplate();
+
+        Object execute = tr.execute(status -> {
+            System.out.println("业务逻辑:"+status);
+            int a=1/0;
+            return null;
+        });
     }
 }
