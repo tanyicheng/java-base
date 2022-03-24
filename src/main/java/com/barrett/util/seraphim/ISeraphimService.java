@@ -23,7 +23,7 @@ public class ISeraphimService {
                 "     void update" + MainSeraphim.className + "(" + MainSeraphim.className + " record);\n\n" +
                 "     " + MainSeraphim.className + " get" + MainSeraphim.className + "ById(Long rowId);\n\n" +
                 "     " + MainSeraphim.className + " getUpdateRecordById(Long rowId);\n\n" +
-                "     void delete" + MainSeraphim.className + "(Long[] rowIds);\n\n";
+                "     void delete" + MainSeraphim.className + "(String rowIds);\n\n";
 //        if (flag == 2) {
 //            result +=
 //                    "     int insertBatch(@Param(\"parentRowId\") Long parentRowId, @Param(\"list\") List list);\n\n";

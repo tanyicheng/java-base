@@ -3,6 +3,7 @@ package com.barrett.util.seraphim;
 
 import com.barrett.util.seraphim.temp.VirtualBarCode;
 import com.barrett.util.seraphim.temp.WorkFlowModel;
+import com.barrett.util.seraphim.temp.WorkFlowModelNode;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
@@ -21,7 +22,7 @@ public class MainSeraphim {
     // 固定字段
     public static String[] params = {"rowId", "createdBy", "createdTime", "updateBy", "updateTime", "isValid"};
     //fixme 需要生成的类
-    public static Object object = new WorkFlowModel();
+    public static Object object = new WorkFlowModelNode();
     //fixme 表名
     public static String table;
 
@@ -29,7 +30,6 @@ public class MainSeraphim {
         try {
             Field field = object.getClass().getField("TableName");
             table = (String) field.get(object);
-            System.out.println(table);
 
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
@@ -71,7 +71,7 @@ public class MainSeraphim {
 //        mc.createService();
 
         // 4、生成 Controller
-//        servicePackage = servicePath.replace("/", ".") + "." + serviceClassName;
+        servicePackage = servicePath.replace("/", ".") + "." + serviceClassName;
 //        mc.createCtrl();
 
 //        getParam(object);

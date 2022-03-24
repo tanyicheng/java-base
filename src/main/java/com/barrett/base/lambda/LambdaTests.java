@@ -23,12 +23,12 @@ public class LambdaTests {
 
         //3、方法内部类
         class Like3 implements Ilike {
-
             @Override
             public void lambda() {
                 System.out.println("I like Lambda3");
             }
         }
+
         like = new Like3();
         like.lambda();
 

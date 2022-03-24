@@ -61,9 +61,16 @@ public class SeraphimService {
         result += "" +
                 "    //批量删除记录\n" +
                 "    @Override\n" +
-                "    public void delete" + MainSeraphim.className + "(Long[] ids) {\n" +
-                "        " + MainSeraphim.daoSmailclName + ".del"+ MainSeraphim.className+"ByIds(ids);\n" +
-                "    }\n\n";
+                "    public void delete" + MainSeraphim.className + "(String rowIds) {\n" +
+                "if (StringUtils.isNotBlank(rowIds)) {\n" +
+                "\t\t\t String[] s = rowIds.split(\",\");\n" +
+                "\t\t\t int i = s.length;\n" +
+                "\t\t\t Long[] arr = new Long[i];\n" +
+                "\t\t\t for (int a = 0; a < i; a++) {\n" +
+                "\t\t\t\t arr[a] = Long.valueOf(s[a]);\n" +
+                "\t\t\t }\n" +
+                "        " + MainSeraphim.daoSmailclName + ".del"+ MainSeraphim.className+"ByIds(arr);\n" +
+                "    }}\n\n";
 
 
         result += "}";

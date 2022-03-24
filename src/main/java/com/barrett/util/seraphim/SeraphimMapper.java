@@ -253,7 +253,11 @@ public class SeraphimMapper {
             }
         }
 
-        result += ")\n</insert>\n\n";
+        result += ")\n" +
+                "<selectKey keyProperty=\"rowId\" resultType=\"long\" order=\"AFTER\">\n" +
+                "      \t\tselect LAST_INSERT_ID()\n" +
+                "   \t \t</selectKey>\n" +
+                "</insert>\n\n";
         return result;
     }
 
