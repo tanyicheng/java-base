@@ -45,9 +45,9 @@ public class InputStreamDemo {
         }
     }
 
-    //标准写法
+    //标准写法 -中文乱码
     static void test2() {
-        File url = new File("io.txt");
+        File url = new File("src/main/resources/file/io.txt");
 
         InputStream is = null;
         try {
@@ -70,11 +70,11 @@ public class InputStreamDemo {
     }
 
     /**
-     * 使用字节
+     * 使用字节-中文乱码
      * @Author created by barrett in 2020/5/15 22:53
      */
     static void test3() {
-        File url = new File("io.txt");
+        File url = new File("src/main/resources/file/io.txt");
 
         InputStream is = null;
         try {

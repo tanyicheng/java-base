@@ -21,7 +21,7 @@ public class ReaderDemo {
     }
 
     static void test3() {
-        File url = new File("io.txt");
+        File url = new File("src/main/resources/file/io.txt");
 
         Reader is = null;
         try {

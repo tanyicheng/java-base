@@ -1,6 +1,11 @@
 package com.barrett.base.io.io1;
 
+import org.apache.commons.io.IOUtils;
+import sun.misc.BASE64Encoder;
+
 import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * 文件的工具类
@@ -77,4 +82,53 @@ public class FileUtils {
         }
 
     }
+
+    public static String imgToBase64(String path) {
+        String baseStr = "";
+        File file = new File(path);
+        try {
+            InputStream input = new FileInputStream(file);
+            // 加密
+            BASE64Encoder encoder = new BASE64Encoder();
+            byte[] bytes = IOUtils.toByteArray(input);
+
+            baseStr = "data:image/png" + ";base64," + encoder.encode(bytes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return baseStr;
+    }
+
+    public static String imgToBase64ByInputStream(String url) {
+        String baseStr = "";
+        try {
+            InputStream input = getImageStream( url);
+            // 加密
+            BASE64Encoder encoder = new BASE64Encoder();
+            byte[] bytes = IOUtils.toByteArray(input);
+
+            baseStr = "data:image/png" + ";base64," + encoder.encode(bytes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return baseStr;
+    }
+
+    public static InputStream getImageStream(String url) {
+        try {
+            HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+            connection.setReadTimeout(5000);
+            connection.setConnectTimeout(5000);
+            connection.setRequestMethod("GET");
+            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                InputStream inputStream = connection.getInputStream();
+                return inputStream;
+            }
+        } catch (IOException e) {
+            System.out.println("获取网络图片出现异常，图片路径为：" + url);
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
