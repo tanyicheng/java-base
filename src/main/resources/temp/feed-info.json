@@ -1,0 +1,70 @@
+{
+  "id": 1,
+  "created_at": "2017-06-21 01:54:52",
+  "updated_at": "2017-06-21 01:54:52",
+  "deleted_at": null,
+  "user_id": 1,
+  "feed_content": "动态内容",
+  "feed_from": 2,
+  "like_count": 0,
+  "feed_view_count": 0,
+  "feed_comment_count": 0,
+  "feed_latitude": null,
+  "feed_longtitude": null,
+  "feed_geohash": null,
+  "audit_status": 1,
+  "feed_mark": 12,
+  "has_like": true,
+  "has_collect": false,
+  "paid_node": {
+    "paid": true,
+    "node": 9,
+    "amount": 20
+  },
+  "comment_paid_node": {
+    "paid": true,
+    "node": 11,
+    "amount": 50
+  },
+  "reward": {
+    "count": 3,
+    "amount": "600"
+  },
+  "images": [
+    {
+      "file": "https://tse1-mm.cn.bing.net/th/id/R-C.60ea936264332281182cfc6b1abb46a6?rik=w3FNKkL9ackbbA&riu=http%3a%2f%2fimage.shutterstock.com%2fz%2fphoto-slug-404525917.jpg&ehk=sIK55TpxjQY3gG67%2bQqCDiZYtMRH69AEnV4NxiGtBQ8%3d&risl=&pid=ImgRaw&r=0",
+      "size": null,
+      "amount": 100,
+      "type": "download",
+      "paid": false,
+      "paid_node": 10
+    },
+    {
+      "file": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi-1.lanrentuku.com%2F2020%2F7%2F20%2Fc399161c-a67e-4094-9435-27b1354cb837.jpg&refer=http%3A%2F%2Fi-1.lanrentuku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1650332709&t=5b8174b554e4cb743f0ad720aee40325",
+      "size": "1930x1930"
+    }
+  ],
+  "likes": [
+    {
+      "id": 2,
+      "user_id": 1,
+      "target_user": 1,
+      "likeable_id": 1,
+      "likeable_type": "feeds",
+      "created_at": "2017-07-12 08:09:07",
+      "updated_at": "2017-07-12 08:09:07"
+    }
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "name": "第一个话题"
+    }
+  ],
+  "repostable_type": null,
+  "repostable_id": null,
+  "user":{
+    "avatar":"",
+    "name":"test"
+  }
+}
