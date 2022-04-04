@@ -22,7 +22,7 @@ public class SeraphimService {
         result +=
                 "    //查询所有记录\n" +
                         "    @Override\n" +
-                        "    public BaseListBO search" + MainSeraphim.className + "List(" + MainSeraphim.className + " form) {\n" +
+                        "    public BaseListBO search" + MainSeraphim.className + "List(" + MainSeraphim.className+"Form" + " form) {\n" +
                         "        Page page = Page.getInstance(form);\n" +
                         "        List<" + MainSeraphim.className + "> list = " + MainSeraphim.daoSmailclName + ".select"+ MainSeraphim.className+"List(page);\n" +
                         "        return BaseListBO.getInstance(page, list);\n" +

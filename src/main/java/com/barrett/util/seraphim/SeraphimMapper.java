@@ -423,7 +423,7 @@ public class SeraphimMapper {
                 String jdbcType = getJdbcType(str);
                 if ("VARCHAR".equals(jdbcType)) {
                     jdbcType += "(200)";
-                } else if ("INT".equals(jdbcType)) {
+                } else if (jdbcType.toLowerCase().startsWith("int")) {
                     jdbcType += "(5)";
                 } else if ("BIGINT".equals(jdbcType)) {
                     jdbcType += "(20)";
@@ -501,7 +501,13 @@ public class SeraphimMapper {
         map.put("class java.lang.Long", "BIGINT");
         list.add(map);
         map = new HashMap<>();
+        map.put("long", "BIGINT");
+        list.add(map);
+        map = new HashMap<>();
         map.put("class java.lang.Integer", "INTEGER");
+        list.add(map);
+        map = new HashMap<>();
+        map.put("int", "int");
         list.add(map);
         map = new HashMap<>();
         map.put("class java.lang.Short", "SMALLINT");

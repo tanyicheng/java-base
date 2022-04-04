@@ -18,7 +18,7 @@ public class ISeraphimService {
         result += "\n" +
                 "public interface " + MainSeraphim.className + "Service {\n\n";
 
-        result += "    BaseListBO search" + MainSeraphim.className + "List ("+ MainSeraphim.className +" form);\n\n" +
+        result += "    BaseListBO search" + MainSeraphim.className + "List ("+ MainSeraphim.className+"Form" +" form);\n\n" +
                 "     void insert" + MainSeraphim.className + "(" + MainSeraphim.className + " record);\n\n" +
                 "     void update" + MainSeraphim.className + "(" + MainSeraphim.className + " record);\n\n" +
                 "     " + MainSeraphim.className + " get" + MainSeraphim.className + "ById(Long rowId);\n\n" +

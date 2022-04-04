@@ -18,13 +18,13 @@ public class SeraphimController {
                     "public class " + MainSeraphim.className + MainSeraphim.ctrlPostfix + " extends BaseController{\n\n";
             result +=
                     "    @Autowired\n" +
-                            "    private " + MainSeraphim.serviceClassName + " " + MainSeraphim.serviceSmailclName + ";\n\n";
+                            "    private " + MainSeraphim.className+MainSeraphim.iservicePostfix + " " + MainSeraphim.serviceSmailclName + ";\n\n";
 
             result +=
                     "    //获取对象列表\n" +
                     "    @ResponseBody\n" +
                     "    @PostMapping(\"/list\")\n" +
-                    "    public Map<String, Object> selectList(@RequestBody " + MainSeraphim.className + " form) {\n" +
+                    "    public Map<String, Object> selectList(@RequestBody " + MainSeraphim.className+"Form" + " form) {\n" +
                     "       BaseListBO bo = " + MainSeraphim.serviceSmailclName + ".search"+ MainSeraphim.className+"List(form);\n" +
                     "        return dataTableJson(bo.getTotalcount(), bo.getDatalist());\n" +
                     "    }\n\n";

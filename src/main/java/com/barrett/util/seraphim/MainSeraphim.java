@@ -1,9 +1,7 @@
 package com.barrett.util.seraphim;
 
 
-import com.barrett.util.seraphim.temp.VirtualBarCode;
-import com.barrett.util.seraphim.temp.WorkFlowModel;
-import com.barrett.util.seraphim.temp.WorkFlowModelNode;
+import com.barrett.util.seraphim.temp.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
@@ -22,7 +20,7 @@ public class MainSeraphim {
     // 固定字段
     public static String[] params = {"rowId", "createdBy", "createdTime", "updateBy", "updateTime", "isValid"};
     //fixme 需要生成的类
-    public static Object object = new WorkFlowModelNode();
+    public static Object object = new WorkFlowTask();
     //fixme 表名
     public static String table;
 
@@ -71,7 +69,7 @@ public class MainSeraphim {
 //        mc.createService();
 
         // 4、生成 Controller
-        servicePackage = servicePath.replace("/", ".") + "." + serviceClassName;
+//        servicePackage = servicePath.replace("/", ".") + "." + serviceClassName;
 //        mc.createCtrl();
 
 //        getParam(object);
@@ -119,6 +117,7 @@ public class MainSeraphim {
     public final static String daoPostfix = "Mapper";
     public final static String mapperPostfix = "Mapper";
     public final static String servicePostfix = "ServiceImpl";
+    public final static String iservicePostfix = "Service";
     public final static String ctrlPostfix = "Controller";
 
     public final static String daoClassName = className + daoPostfix;
