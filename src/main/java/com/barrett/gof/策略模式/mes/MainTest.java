@@ -1,5 +1,7 @@
 package com.barrett.gof.策略模式.mes;
 
+import com.barrett.gof.策略模式.mes.site.StackUp;
+
 public class MainTest {
     public static void main(String[] args) {
         ProdLine pl = new ProdLine();

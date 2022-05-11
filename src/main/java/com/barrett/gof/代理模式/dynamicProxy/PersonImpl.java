@@ -10,7 +10,7 @@ package com.barrett.gof.代理模式.dynamicProxy;
 public class PersonImpl  {
     public static void main(String[] args) throws Exception {
         String str ="";
-        ManPerson m = ManPerson.class.newInstance();
+        Person m = ManPerson.class.newInstance();
 //        WomenPerson m= WomenPerson.class.newInstance();
         m.name="张三";
         m.age=99;

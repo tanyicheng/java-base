@@ -1,4 +1,4 @@
-package com.barrett.gof.策略模式.mes;
+package com.barrett.gof.策略模式.mes.site;
 
 /**
  * 前EL测试

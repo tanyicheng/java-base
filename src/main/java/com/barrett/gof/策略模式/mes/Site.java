@@ -11,8 +11,5 @@ public abstract class Site {
         System.out.println("公共的刷入逻辑");
     }
 
-    //刷入前校验
-    void preBrush(){
-
-    }
+    protected abstract void preBrush();
 }
