@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,8 +21,22 @@ public class BaseTest {
         Long l = 1234567890123456789l;
 
 //        System.out.println(l);
-        exception();
+//        exception();
 
+//        Double a = 2.3;
+//        Double b = 6.3;
+//        System.out.println(new BigDecimal(100 * a));
+        test1(3, 34);
+    }
+
+    public static void test1(double size, int passRate) {
+        for (int i = 1; i <= size; i++) {
+            System.out.println(i / size * 100 );
+            if (i / size * 100 >= passRate) {
+                System.out.println("true,会签通过至少人数" + i);
+                break;
+            }
+        }
     }
 
     //异常输出
@@ -63,27 +78,28 @@ public class BaseTest {
         }
     }
 
-    public static List<String> dzList(List<String> list){
-        list.forEach((item)->{
-            item +="aaa";
+    public static List<String> dzList(List<String> list) {
+        list.forEach((item) -> {
+            item += "aaa";
         });
         return null;
     }
 
     @Test
-    public void test3(){
+    public void test3() {
         List<String> list = new ArrayList<>();
         list.add("245");
         list.add("246");
         dzList(list);
     }
+
     @Test
-    public void testTr(){
+    public void testTr() {
         TranTemplate tr = new TranTemplate();
 
         Object execute = tr.execute(status -> {
-            System.out.println("业务逻辑:"+status);
-            int a=1/0;
+            System.out.println("业务逻辑:" + status);
+            int a = 1 / 0;
             return null;
         });
     }
