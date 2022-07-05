@@ -39,7 +39,7 @@ public class DateUtil {
 
     /**
      * 根据时间生成订单编码,
-     * 根据num 添加随机数
+     * 根据num 添加随机数(num=100,表示加3位)
      *
      * @return
      * @author tanyicheng 创建时间：2017年11月22日-下午5:57:46
@@ -303,5 +303,12 @@ public class DateUtil {
 //		plusDay(1,"2018-12-31");
         long timestamp = timestamp(1621169244719L,1621169267719L);
         System.out.println(timestamp);
+
+        String dateTimeToOrder = getDateTimeToOrder(1000);
+        System.out.println(dateTimeToOrder);
+        //202206261510406098
+        //2022070521371631140
+        //20220705213604549
+        //2022070521340574
     }
 }
