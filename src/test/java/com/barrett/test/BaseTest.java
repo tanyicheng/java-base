@@ -1,10 +1,12 @@
 package com.barrett.test;
 
 import com.barrett.base.net.tcp.demo5.Base5;
+import com.barrett.beans.Person;
 import com.barrett.gof.编程式事物封装.TranTemplate;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -26,7 +28,16 @@ public class BaseTest {
 //        Double a = 2.3;
 //        Double b = 6.3;
 //        System.out.println(new BigDecimal(100 * a));
-        test1(3, 34);
+//        test1(3, 34);
+
+        Person p = new Person(1,"张三","18");
+        Person b = new Person();
+        BeanUtils.copyProperties(p,b);
+        b.setAge("25");
+
+        System.out.println(p.toString());
+        System.out.println(b.toString());
+
     }
 
     public static void test1(double size, int passRate) {
