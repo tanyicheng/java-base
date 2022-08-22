@@ -31,14 +31,15 @@ public class MailUtil {
     private final static Logger syslog = LoggerFactory.getLogger(MailUtil.class);
     //获取配置文件中的发件人信息：  账号  授权码
     private static String mailSender = "xiaoyifam@163.com";
-    private static String MailAuthorization = "";
+    private static String MailAuthorization = "xiaoyi891126";
 
     public static void main(String[] args) {
         //接收人账号，主题，内容
         //sendEmail("18115059001@163.com", "java测试", "恭喜发财");
 //            sendEmailSll("yicheng.tan@seraphim-energy.com", "测试标题", "上线无bug");
-//        sendEmailSll("65797706@qq.com", "测试标题", "上线无bug");
-        Inclass.sendEmail("yicheng.tan@seraphim-energy.com", "邮件发送测试", "恭喜发财");
+//        Inclass.sendEmailSll("65797706@qq.com", "测试标题", "测试征文");
+//        Inclass.sendEmail("65797706@qq.com", "测试标题-1", "测试征文");
+        Inclass.sendEmail("yicheng.tan@seraphim-energy.com", "虎年大吉", "发大财");
     }
 
 

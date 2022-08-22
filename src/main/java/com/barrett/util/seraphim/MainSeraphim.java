@@ -20,7 +20,7 @@ public class MainSeraphim {
     // 固定字段
     public static String[] params = {"rowId", "createdBy", "createdTime", "updateBy", "updateTime", "isValid"};
     //fixme 需要生成的类
-    public static Object object = new WorkFlowTask();
+    public static Object object = new WorkFlowAgent();
     //fixme 表名
     public static String table;
 
@@ -65,12 +65,12 @@ public class MainSeraphim {
         mc.createMapper(flag);
 
         // 3、生成 Service
-//        mc.createIService();
-//        mc.createService();
+        mc.createIService();
+        mc.createService();
 
         // 4、生成 Controller
-//        servicePackage = servicePath.replace("/", ".") + "." + serviceClassName;
-//        mc.createCtrl();
+        servicePackage = servicePath.replace("/", ".") + "." + serviceClassName;
+        mc.createCtrl();
 
 //        getParam(object);
     }
