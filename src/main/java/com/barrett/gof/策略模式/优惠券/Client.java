@@ -4,17 +4,17 @@ import java.math.BigDecimal;
 
 /**
  * 参考：https://blog.csdn.net/daidaineteasy/article/details/105328020
+ *
  * @author created by barrett in 2021/6/27 21:18
  **/
 public class Client {
 
     public static void main(String[] args) {
-      test();
-
+        test();
 //      test2();
     }
 
-    public static void test(){
+    public static void test() {
         // 创建购物车实例
         ShoppingCart shoppingCart = new ShoppingCart();
         // 模拟往购物车中加入总金额为200的商品
@@ -35,7 +35,7 @@ public class Client {
         shoppingCart.submitOrder();
     }
 
-    public static void test2(){
+    public static void test2() {
         // 创建购物车实例
         ShoppingCart shoppingCart = new ShoppingCart();
         // 模拟往购物车中加入了总金额为200的商品
