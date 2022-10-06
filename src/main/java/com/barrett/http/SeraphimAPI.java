@@ -20,7 +20,6 @@ public class SeraphimAPI {
 //        new SeraphimAPI().test();
 //        new SeraphimAPI().get();
         new SeraphimAPI().getLottery();
-
     }
 
     public void test() throws Exception {
