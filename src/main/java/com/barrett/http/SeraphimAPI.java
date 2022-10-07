@@ -35,6 +35,7 @@ public class SeraphimAPI {
         HttpGet httpGet = new HttpGet(String.format("%s%s?staffId=%s&password=%s", ApiConfig.baseApi, loginApi, ApiConfig.loginUsername, ApiConfig.getInstance().toMD5(ApiConfig.loginPassword)));
         httpGet.setConfig(requestConfig);
 
+
         System.out.println("开始登录");
 
         CloseableHttpResponse response = client.execute(httpGet);
