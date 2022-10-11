@@ -24,6 +24,7 @@ public class MainSeraphim {
     //fixme 表名
     public static String table;
 
+
     static {
         try {
             Field field = object.getClass().getField("TableName");
