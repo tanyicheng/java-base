@@ -2,6 +2,9 @@ package com.barrett.base.正则表达式;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * 使用java自带方法，判断数字和字母
  *
@@ -10,12 +13,13 @@ import org.apache.commons.lang3.StringUtils;
 public class PatternDemo1 {
 
     public static void main(String[] args) {
-        PatternDemo1 p = new PatternDemo1();
-        String str = "AA";
-        String number = p.getNumberStr(str);
+//        PatternDemo1 p = new PatternDemo1();
+//        String str = "AA";
+//        String number = p.getNumberStr(str);
 //        System.out.println(str.replace(number,""));
 //        System.out.println(number);
-        System.out.println(p.getNumberStr2(str));
+//        System.out.println(p.getNumberStr2(str));
+        checkEmail();
     }
 
 
@@ -43,11 +47,11 @@ public class PatternDemo1 {
             }
         }
 
-        return code.replace(number,"")+getNextNumber(number.toString());
+        return code.replace(number, "") + getNextNumber(number.toString());
     }
 
     public String getNextNumber(String str) {
-        if(StringUtils.isNotEmpty(str)){
+        if (StringUtils.isNotEmpty(str)) {
             int number = Integer.parseInt(str);
             StringBuilder code = new StringBuilder();
             //序列号自增
@@ -62,5 +66,12 @@ public class PatternDemo1 {
             return code.toString() + number;
         }
         return "";
+    }
+
+    public static void checkEmail() {
+        String email = "Dikw_091.2@163.c";
+        String regex = "^(\\w+([-.][A-Za-z0-9]+)*){3,18}@\\w+([-.][A-Za-z0-9]+)*\\.\\w+([-.][A-Za-z0-9]+)*$";
+        boolean matches = Pattern.matches(regex, email);
+        System.out.println(matches);
     }
 }
