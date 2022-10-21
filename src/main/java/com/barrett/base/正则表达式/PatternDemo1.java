@@ -2,7 +2,6 @@ package com.barrett.base.正则表达式;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
