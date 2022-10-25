@@ -51,7 +51,6 @@ public class MainSeraphim {
     public static void main(String[] args) throws InterruptedException {
 
         MainSeraphim mc = new MainSeraphim();
-
         if(StringUtils.isEmpty(table)){
             System.out.println("table name is null");
             return;
