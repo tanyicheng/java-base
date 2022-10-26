@@ -23,7 +23,6 @@ public class MainSeraphim {
     public static Object object = new WorkFlowAgent();
     //fixme 表名
     public static String table;
-
     static {
         try {
             Field field = object.getClass().getField("TableName");
