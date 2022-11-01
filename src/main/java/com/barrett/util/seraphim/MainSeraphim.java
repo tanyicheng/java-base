@@ -39,6 +39,7 @@ public class MainSeraphim {
 
     //flag = 2 需要增加批量插入; 手动=1
     static int flag = 2;
+
     /**
      * TODO 准备工作：
      * 以实体类为主：添加 TableName
