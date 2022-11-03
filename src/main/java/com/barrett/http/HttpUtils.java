@@ -26,6 +26,7 @@ import java.util.function.Consumer;
  */
 public enum HttpUtils {
 
+    //
     INSTANCE;
 
     private static final Logger log = LoggerFactory.getLogger(HttpUtils.class);
