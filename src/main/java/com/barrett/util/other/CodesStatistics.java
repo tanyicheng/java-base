@@ -174,6 +174,7 @@ public class CodesStatistics {
 
 		String s = "/Users/snipe/Documents/tan/git/project/FitnessPlan/app/src";
 //		String s = "/Users/snipe/Documents/tan/git/study/activiti5-demo";
+
 		File dir = new File(s);
 		CodesStatistics cs = new CodesStatistics(dir);
 
