@@ -19,7 +19,7 @@ public class SeraphimAPI {
 
 //        new SeraphimAPI().test();
 //        new SeraphimAPI().get();
-        new SeraphimAPI().getLottery();
+        new SeraphimAPI().getFastMock();
     }
 
     public void test() throws Exception {
@@ -89,6 +89,18 @@ public class SeraphimAPI {
 
             Object data = body.get("data");
             System.out.println();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void getFastMock() {
+        try {
+//            String url = String.format("%s%s", ApiConfig.baseApi, ApiConfig.nameplateGetApi);
+            String url = "https://www.fastmock.site/mock/a00c54ab2b17c0a9084461f568b22e40/kaoqing/haikang";
+            JSONObject body = HttpUtils.INSTANCE.post(url , "");
+
+            Object data = body.get("data");
+            System.out.println(data);
         } catch (Exception e) {
             e.printStackTrace();
         }
