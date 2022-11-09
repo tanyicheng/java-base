@@ -21,8 +21,6 @@ import java.util.function.Consumer;
 
 /**
  * Http 工具
- * @author fishcat
- * @date 2018/11/22 9:15 AM
  */
 public enum HttpUtils {
 
@@ -110,7 +108,9 @@ public enum HttpUtils {
             // Post 请求
             HttpPost request = new HttpPost(url);
             request.setConfig(requestConfig);
-            if (headers != null) request.setHeaders(headers);
+            if (headers != null) {
+                request.setHeaders(headers);
+            }
 
             MultipartEntityBuilder builder = MultipartEntityBuilder.create()
                     .setMode(HttpMultipartMode.BROWSER_COMPATIBLE)
