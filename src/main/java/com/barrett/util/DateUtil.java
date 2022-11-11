@@ -2,12 +2,14 @@ package com.barrett.util;
 
 import org.springframework.util.StringUtils;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * 时间的工具类
@@ -278,6 +280,7 @@ public class DateUtil {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
         return enddate;
     }
 
@@ -290,6 +293,20 @@ public class DateUtil {
         long result = end - first;
         return result;
     }
+
+    /**
+     * 获取偏移的日期 秒
+     *
+     * @return
+     * @throws ParseException
+     */
+    public static Date getDateOffsetSeconds(Date date, int seconds) {
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(date);
+        calendar.add(Calendar.SECOND, seconds);//把秒往后增加    整数往后推,负数往前移动
+        return calendar.getTime();
+    }
+
 
     public static void main(String[] args) {
         DateUtil d = new DateUtil();
@@ -310,5 +327,7 @@ public class DateUtil {
         //2022070521371631140
         //20220705213604549
         //2022070521340574
+
+        System.out.println(dateToString(getDateOffsetSeconds(new Date(),60)));
     }
 }
