@@ -3,6 +3,7 @@ package com.barrett.test;
 import com.barrett.base.net.tcp.demo5.Base5;
 import com.barrett.beans.Person;
 import com.barrett.gof.编程式事物封装.TranTemplate;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,9 +31,9 @@ public class BaseTest {
 //        System.out.println(new BigDecimal(100 * a));
 //        test1(3, 34);
 
-        Person p = new Person(1,"张三","18");
+        Person p = new Person(1, "张三", "18");
         Person b = new Person();
-        BeanUtils.copyProperties(p,b);
+        BeanUtils.copyProperties(p, b);
         b.setAge("25");
 
         System.out.println(p.toString());
@@ -42,7 +43,7 @@ public class BaseTest {
 
     public static void test1(double size, int passRate) {
         for (int i = 1; i <= size; i++) {
-            System.out.println(i / size * 100 );
+            System.out.println(i / size * 100);
             if (i / size * 100 >= passRate) {
                 System.out.println("true,会签通过至少人数" + i);
                 break;
@@ -113,5 +114,28 @@ public class BaseTest {
             int a = 1 / 0;
             return null;
         });
+    }
+
+    @Test
+    public void test4() {
+        List<String> list = new ArrayList<>();
+        List<String> list2 = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            list.add("abcdefg" + i);
+            list2.add("abcdefg" + i);
+        }
+        String ids = String.join(",", list);
+        System.out.println("--->" + ids);
+
+        int i = 0;
+        for (String id : list2) {
+            ++i;
+            if (StringUtils.isNotEmpty(ids) && ids.contains(id)) {
+                ids = ids.replace(id+",", "");
+                System.out.println(i + "--->" + ids);
+                continue;
+            }
+            System.out.println(i + "=======");
+        }
     }
 }
