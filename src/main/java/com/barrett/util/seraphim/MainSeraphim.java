@@ -23,7 +23,7 @@ public class MainSeraphim {
     public static Object object = new WorkFlowAgent();
     //fixme 表名
     public static String table;
-    
+
     static {
         try {
             Field field = object.getClass().getField("TableName");
@@ -51,7 +51,7 @@ public class MainSeraphim {
     public static void main(String[] args) throws InterruptedException {
 
         MainSeraphim mc = new MainSeraphim();
-        if(StringUtils.isEmpty(table)){
+        if (StringUtils.isEmpty(table)) {
             System.out.println("table name is null");
             return;
         }
@@ -80,7 +80,7 @@ public class MainSeraphim {
         System.out.println("{");
         for (int i = 0; i < field.length; i++) {
             String name = field[i].getName();
-            System.out.println("\""+name+"\""+":"+"\""+i+"\",");
+            System.out.println("\"" + name + "\"" + ":" + "\"" + i + "\",");
         }
         System.out.println("}");
         return null;
@@ -88,12 +88,14 @@ public class MainSeraphim {
 
     /**
      * 建表
+     *
      * @Author created by barrett in 2019/1/13 15:09
      */
     public static void createTbaleSql() {
         SeraphimMapper.fixParam = SeraphimMapper.fixedParams(MainSeraphim.params);
         SeraphimMapper.printCreateTable();
     }
+
     // Mapper =================== start
     public static String prefix = "t.";
     //类名
@@ -155,8 +157,8 @@ public class MainSeraphim {
         str += SeraphimMapper.getUpdate(object);
         str += SeraphimMapper.getById(object);
         str += SeraphimMapper.getUpdateRecordById(object);
-        if(flag == 2){
-            str+= SeraphimMapper.getInsertBatch(object);
+        if (flag == 2) {
+            str += SeraphimMapper.getInsertBatch(object);
         }
         str += SeraphimMapper.getDelete(object);
         str += "</mapper>";
