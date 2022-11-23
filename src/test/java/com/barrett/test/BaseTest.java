@@ -1,5 +1,7 @@
 package com.barrett.test;
 
+import com.alibaba.fastjson.JSON;
+import com.barrett.base.json.JsonUtils;
 import com.barrett.base.net.tcp.demo5.Base5;
 import com.barrett.beans.Person;
 import com.barrett.gof.编程式事物封装.TranTemplate;
@@ -131,11 +133,43 @@ public class BaseTest {
         for (String id : list2) {
             ++i;
             if (StringUtils.isNotEmpty(ids) && ids.contains(id)) {
-                ids = ids.replace(id+",", "");
+                ids = ids.replace(id + ",", "");
                 System.out.println(i + "--->" + ids);
                 continue;
             }
             System.out.println(i + "=======");
         }
+    }
+
+    @Test
+    public void test5() {
+        List<Integer> all = new ArrayList<>();
+        all.add(1);
+        all.add(2);
+        all.add(3);
+        all.add(4);
+        all.add(5);
+        List<Integer> old = new ArrayList<>();
+        old.add(1);
+        old.add(3);
+        old.add(5);
+        List<Integer> install = new ArrayList<>();
+        List<Integer> update = new ArrayList<>();
+        for (Integer id : all) {
+            boolean flag = true;
+            //更新
+            for (Integer id2 : old) {
+                if (id == id2) {
+                    flag = false;
+                    update.add(id);
+                    break;
+                }
+            }
+            //新增
+            if (flag)
+                install.add(id);
+        }
+        System.out.println(JSON.toJSONString(update));
+        System.out.println(JSON.toJSONString(install));
     }
 }
