@@ -47,7 +47,6 @@ public class TestList {
             list.add("str-"+i);
         }
 //        list.remove("str-5");
-
         list.add("航三");
         list.add("航四");
         list.add("航一");
