@@ -23,6 +23,7 @@ import java.util.Map;
 
 /**
  * 仅参考，不使用
+ *
  * @Author created by barrett in 2022/11/22 05:59
  */
 public class QiNiuUtil {

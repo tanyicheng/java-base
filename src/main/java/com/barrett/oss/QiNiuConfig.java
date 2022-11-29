@@ -7,6 +7,7 @@ import java.util.Properties;
 
 /**
  * 七牛云配置
+ *
  * @Author created by barrett in 2022/11/20 08:00
  */
 @Data
