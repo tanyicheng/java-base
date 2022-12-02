@@ -21,6 +21,8 @@ public class DateUtil {
 
     /**
      * 获取当前时间
+     * 大写HH：24小时制，小写hh：12小时制
+     * 毫秒：SSS
      *
      * @return yyyy-MM-dd HH:mm:ss
      * @author tanyicheng 创建时间：2017年3月26日-下午2:50:26
@@ -306,8 +308,18 @@ public class DateUtil {
         return calendar.getTime();
     }
 
+    /**
+     * 时间字符转时间戳
+     * @Author created by barrett in 2022/12/2 09:18
+     */
+    public static long getTimestamp(String str) throws ParseException {
+        Date date = stringToDate(str);
+        long shootTime = date.getTime();
+        return shootTime;
+    }
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws ParseException {
         DateUtil d = new DateUtil();
         //d.stringToDate("2004-03-26 13:31:40");
 //		long da = dateNum(new Date());
@@ -317,7 +329,7 @@ public class DateUtil {
 //		System.out.println(getDateTime());;
 //        plusDay(1, null);
 //		plusDay(1,"2018-12-31");
-        long timestamp = timestamp(1621169244719L,1621169267719L);
+        long timestamp = timestamp(1621169244719L, 1621169267719L);
         System.out.println(timestamp);
 
         String dateTimeToOrder = getDateTimeToOrder(1000);
@@ -327,6 +339,16 @@ public class DateUtil {
         //20220705213604549
         //2022070521340574
 
-        System.out.println(dateToString(getDateOffsetSeconds(new Date(),60)));
+        System.out.println(dateToString(getDateOffsetSeconds(new Date(), 60)));
+
+        System.out.println(getTimestamp("2022-12-02 09:46:00"));
+
+        DateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        Calendar beforeDay = Calendar.getInstance();
+        Timestamp ts = Timestamp.valueOf("2022-11-26 10:13:49");
+        beforeDay.setTime(ts);
+        beforeDay.add(Calendar.DAY_OF_MONTH,-1);
+        String beforeDate = sdf.format(beforeDay.getTime());
+        System.out.println(beforeDate);
     }
 }
