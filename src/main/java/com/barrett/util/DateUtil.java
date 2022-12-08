@@ -350,5 +350,9 @@ public class DateUtil {
         beforeDay.add(Calendar.DAY_OF_MONTH,-1);
         String beforeDate = sdf.format(beforeDay.getTime());
         System.out.println(beforeDate);
+
+        int i = dateDifference("2022-10-26 10:13:49", "2022-11-26 10:13:49");
+        System.out.println(i);
+
     }
 }
