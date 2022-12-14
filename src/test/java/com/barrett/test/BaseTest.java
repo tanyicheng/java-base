@@ -15,9 +15,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class BaseTest {
     public static Logger log = LoggerFactory.getLogger(BaseTest.class);
@@ -171,5 +169,15 @@ public class BaseTest {
         }
         System.out.println(JSON.toJSONString(update));
         System.out.println(JSON.toJSONString(install));
+    }
+
+    @Test
+    public void test6() {
+        Map map = new HashMap();
+        map.put("a",6);
+        map.put("b",6);
+        Integer a= (Integer) map.get("a");
+        Integer b= (Integer) map.get("b");
+        System.out.println(a.equals(b));
     }
 }
