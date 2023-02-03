@@ -1,6 +1,7 @@
 package com.barrett.test;
 
 import com.barrett.beans.Person;
+import org.junit.Test;
 
 import javax.imageio.plugins.jpeg.JPEGImageReadParam;
 import java.util.ArrayList;
@@ -8,11 +9,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
+import static com.barrett.list.ListExample.sameList;
+
 public class TestList {
 
     public static void main(String[] args) {
         test2();
     }
+
 
     public static void test1() {
         List<Person> list = new ArrayList<>();
