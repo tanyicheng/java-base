@@ -18,9 +18,10 @@ public class MainSeraphim {
     // dao、service、mapper、controller 需要放入的路径
     public final static String urlName = "src/main/java/com/barrett/util/seraphim/code";
     // 固定字段
-    public static String[] params = {"rowId", "createdBy", "createdTime", "updateBy", "updateTime", "isValid"};
+    public static String[] params = {"rowId", "createdBy", "createdTime", "updateBy", "updateTime"};
+//    public static String[] params = {"rowId", "createdBy", "createdTime", "updateBy", "updateTime", "isValid"};
     //fixme 需要生成的类
-    public static Object object = new WorkFlowAgent();
+    public static Object object = new StaticProductStock();
     //fixme 表名
     public static String table;
 
@@ -39,7 +40,7 @@ public class MainSeraphim {
     public static String parentId = "parentId";
 
     //flag = 2 需要增加批量插入; 手动=1
-    static int flag = 2;
+    static int flag = 1;
 
     /**
      * TODO 准备工作：
