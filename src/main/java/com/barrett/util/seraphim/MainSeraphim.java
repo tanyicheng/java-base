@@ -1,7 +1,7 @@
 package com.barrett.util.seraphim;
 
 
-import com.barrett.util.seraphim.temp.*;
+import com.barrett.util.seraphim.temp.StaticProductStockDetail;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
@@ -21,7 +21,7 @@ public class MainSeraphim {
     public static String[] params = {"rowId", "createdBy", "createdTime", "updateBy", "updateTime"};
 //    public static String[] params = {"rowId", "createdBy", "createdTime", "updateBy", "updateTime", "isValid"};
     //fixme 需要生成的类
-    public static Object object = new StaticProductStock();
+    public static Object object = new StaticProductStockDetail();
     //fixme 表名
     public static String table;
 
@@ -40,7 +40,7 @@ public class MainSeraphim {
     public static String parentId = "parentId";
 
     //flag = 2 需要增加批量插入; 手动=1
-    static int flag = 1;
+    static int flag = 2;
 
     /**
      * TODO 准备工作：

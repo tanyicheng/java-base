@@ -6,6 +6,7 @@ import org.junit.Test;
 import javax.imageio.plugins.jpeg.JPEGImageReadParam;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
@@ -17,15 +18,38 @@ public class TestList {
         test2();
     }
 
+    @Test
+    public void test3() {
+        List<Person> list = new ArrayList<>();
+        list.add(new Person(1, "9-1000", "18"));
+        list.add(new Person(2, "9-10001", "19"));
+        list.add(new Person(3, "9-1000", "20"));
+        list.add(new Person(1, "9-10001", "21"));
+        list.add(new Person(2, "9-1000", "22"));
+        list.add(new Person(3, "9-1000", "23"));
+
+        HashMap<String, List<String>> map = new HashMap<>();
+        for (Person form : list) {
+            List<String> strings = map.get(form.getName());
+            if (strings == null) {
+                strings = new ArrayList<>();
+            }
+            strings.add(form.getAge());
+            map.put(form.getName(), strings);
+        }
+
+        System.out.println(map);
+
+    }
 
     public static void test1() {
         List<Person> list = new ArrayList<>();
 
         for (int i = 0; i < 50; i++) {
-            Person p = new Person(i,"张三","99","中国","123456890");
+            Person p = new Person(i, "张三", "99", "中国", "123456890");
             list.add(p);
         }
-        Person p2 = new Person(5,"张三","99","中国","123456890");
+        Person p2 = new Person(5, "张三", "99", "中国", "123456890");
 
         List<Person> remove = new ArrayList<>();
 //        remove.add(p2);
@@ -33,7 +57,7 @@ public class TestList {
         Person rem = null;
 
         for (Person person : list) {
-            if(person.getId() ==5){
+            if (person.getId() == 5) {
                 remove.add(person);
                 rem = person;
             }
@@ -48,7 +72,7 @@ public class TestList {
         List<String> list = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
-            list.add("str-"+i);
+            list.add("str-" + i);
         }
 //        list.remove("str-5");
         list.add("航三");
