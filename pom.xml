@@ -88,14 +88,14 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-<!--            <version>5.2.0</version>-->
+            <!--            <version>5.2.0</version>-->
             <version>4.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>4.0.1</version>
-<!--            <version>5.2.0</version>-->
+            <!--            <version>5.2.0</version>-->
         </dependency>
 
         <dependency>
@@ -111,11 +111,11 @@
             <artifactId>spring-jms</artifactId>
             <version>4.3.25.RELEASE</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>javax.jms</groupId>-->
-<!--            <artifactId>jms</artifactId>-->
-<!--            <version>1.1</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>javax.jms</groupId>-->
+        <!--            <artifactId>jms</artifactId>-->
+        <!--            <version>1.1</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-core</artifactId>
@@ -229,11 +229,11 @@
             <artifactId>itext-asian</artifactId>
             <version>5.2.0</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.lowagie</groupId>-->
-<!--            <artifactId>itextasian</artifactId>-->
-<!--            <version>1.0</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.lowagie</groupId>-->
+        <!--            <artifactId>itextasian</artifactId>-->
+        <!--            <version>1.0</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>itextpdf</artifactId>
@@ -268,6 +268,23 @@
             <groupId>net.coobird</groupId>
             <artifactId>thumbnailator</artifactId>
             <version>0.4.8</version>
+        </dependency>
+
+        <!--easypoi-->
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-base</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-web</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-annotation</artifactId>
+            <version>4.1.0</version>
         </dependency>
     </dependencies>
 
