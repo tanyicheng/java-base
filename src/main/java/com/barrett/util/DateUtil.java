@@ -53,7 +53,10 @@ public class DateUtil {
         DateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmsss");
         try {
             //外加随机数 (6位是*100000)
-            int rnd = (int) ((Math.random() * 9 + 1) * num);
+            int rnd = 0;
+            if (num > 0) {
+                rnd = (int) ((Math.random() * 9 + 1) * num);
+            }
             dateStr = sdf.format(date) + rnd;
         } catch (Exception e) {
             e.printStackTrace();
