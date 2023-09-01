@@ -348,6 +348,7 @@
             <url>https://maven.mangoautomation.net/repository/ias-release/</url>
         </repository>
 
+        <!--第三方库-->
         <repository>
             <id>com.e-iceblue</id>
             <name>e-iceblue</name>
