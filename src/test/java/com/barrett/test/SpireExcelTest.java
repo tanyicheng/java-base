@@ -45,7 +45,6 @@ public class SpireExcelTest {
         CellRange oldText = worksheet.findString("${name}", true, true);
         oldText.setText("300万");
 
-
         for (CellRange range : ranges) {
             //替换为新文字
             range.setText("替换");
