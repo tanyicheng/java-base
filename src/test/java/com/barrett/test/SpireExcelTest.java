@@ -43,7 +43,7 @@ public class SpireExcelTest {
         //查找工作表中的指定文字
         CellRange[] ranges = worksheet.findAllString("${name}", true, true);
         CellRange oldText = worksheet.findString("${name}", true, true);
-        oldText.setText("300万");
+        oldText.setText("3000万");
 
         for (CellRange range : ranges) {
             //替换为新文字
