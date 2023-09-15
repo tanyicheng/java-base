@@ -14,6 +14,7 @@ public class SpireMain {
         //设置转换后的PDF页面高宽适应工作表的内容大小
         workbook.getConverterSetting().setSheetFitToPage(true);
 
+
         //将生成的文档保存到指定路径
         workbook.saveToFile("/Users/snipe/Documents/temp/output/ExcelToPdf.pdf", FileFormat.PDF);
     }
