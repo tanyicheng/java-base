@@ -7,7 +7,6 @@ import com.spire.xls.Workbook;
 public class SpireMain {
 
     public static void main(String[] args) {
-
         //创建一个Workbook实例并加载Excel文件
         Workbook workbook = new Workbook();
         workbook.loadFromFile("/Users/snipe/Documents/temp/800.xlsm");
