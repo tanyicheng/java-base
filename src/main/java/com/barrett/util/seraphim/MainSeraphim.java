@@ -36,7 +36,6 @@ public class MainSeraphim {
         }
     }
 
-
     //批量插入时主表id,这里主要用来mapper.xml中替换关联的id
     //fixme 手动修改字段
     public static String parentId = "parentId";
@@ -58,6 +57,7 @@ public class MainSeraphim {
             System.out.println("table name is null");
             return;
         }
+
         //0、建表
         createTbaleSql();
 //         1、TODO Dao
