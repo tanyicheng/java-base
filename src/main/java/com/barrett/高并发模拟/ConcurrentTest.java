@@ -24,7 +24,7 @@ public class ConcurrentTest {
         //模拟10000人并发请求，用户钱包
         CountDownLatch latch = new CountDownLatch(1);
         //模拟10000个用户
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             AnalogUser analogUser = new AnalogUser("user" + i, 123L, "1", "20.024", latch);
             analogUser.start();
         }
