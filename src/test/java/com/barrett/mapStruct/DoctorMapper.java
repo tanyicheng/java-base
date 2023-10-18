@@ -1,4 +1,4 @@
-package com.barrett.map_struct;
+package com.barrett.mapStruct;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

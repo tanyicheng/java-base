@@ -1,4 +1,4 @@
-package com.barrett.map_struct;
+package com.barrett.mapStruct;
 
 public class DoctorDto {
     private int id;
