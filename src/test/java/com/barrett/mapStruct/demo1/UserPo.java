@@ -14,9 +14,10 @@ import java.util.Date;
 public class UserPo {
     private Long id;
     private Date gmtCreate;
-    private Date createTime;
+    private String createTime;
     private Long buyerId;
-    private Long age;
+    private String age;
     private String userNick;
     private String userVerified;
+    private String attributes;
 }
