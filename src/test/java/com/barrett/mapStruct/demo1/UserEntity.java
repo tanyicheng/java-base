@@ -11,7 +11,7 @@ public class UserEntity {
     private Date createTime;
     private Long buyerId;
     private Long age;
-    //修改属性名与PO不同
     private String userNick1;
     private String userVerified;
+    private Attributes attributes;
 }
