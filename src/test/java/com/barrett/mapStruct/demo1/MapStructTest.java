@@ -34,6 +34,10 @@ public class MapStructTest {
     }
 
 
+    /**
+     * 性能测试对比
+     * @author created by barrett in 2023/11/13 08:16
+     */
     @Test
     public static void testTime() {
         System.out.println("-----------testTime-----start------");
