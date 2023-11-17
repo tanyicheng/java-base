@@ -43,7 +43,7 @@ public class MapStructTest {
         System.out.println("-----------testTime-----start------");
         int times = 50000000;
         final long springStartTime = System.currentTimeMillis();
-//        实测 45秒
+//        times = 50000000 实测 45秒
 //        for (int i = 0; i < times; i++) {
 //            UserPo userPo = UserPo.builder()
 //                    .id(1L)
