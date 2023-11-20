@@ -44,17 +44,17 @@ public class MapStructTest {
         int times = 50000000;
         final long springStartTime = System.currentTimeMillis();
 //        times = 50000000 实测 45秒
-//        for (int i = 0; i < times; i++) {
-//            UserPo userPo = UserPo.builder()
-//                    .id(1L)
-//                    .gmtCreate(new Date())
-//                    .buyerId(666L)
-//                    .userNick("测试123")
-//                    .userVerified("ok")
-//                    .build();
-//            UserEntity userEntity = new UserEntity();
-//            BeanUtils.copyProperties(userPo, userEntity);
-//        }
+        for (int i = 0; i < times; i++) {
+            UserPo userPo = UserPo.builder()
+                    .id(1L)
+                    .gmtCreate(new Date())
+                    .buyerId(666L)
+                    .userNick("测试123")
+                    .userVerified("ok")
+                    .build();
+            UserEntity userEntity = new UserEntity();
+            BeanUtils.copyProperties(userPo, userEntity);
+        }
 
         final long springEndTime = System.currentTimeMillis();
         for (int i = 0; i < times; i++) {
