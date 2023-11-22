@@ -49,7 +49,7 @@ public class MapStructTest {
                     .id(1L)
                     .gmtCreate(new Date())
                     .buyerId(666L)
-                    .userNick("测试123")
+                    .userNick("测试昵称")
                     .userVerified("ok")
                     .build();
             UserEntity userEntity = new UserEntity();
