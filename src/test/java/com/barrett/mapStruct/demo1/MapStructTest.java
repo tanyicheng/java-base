@@ -6,8 +6,7 @@ import org.springframework.beans.BeanUtils;
 import java.util.Date;
 
 /**
- * 参考：https://juejin.cn/post/7140149801991012365
- *
+ * 功能、性能测试
  * @author created by barrett in 2023/10/18 08:47
  */
 public class MapStructTest {
