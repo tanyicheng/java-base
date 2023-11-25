@@ -63,6 +63,7 @@ public class MapStructTest {
                     .userNick("测试123")
                     .userVerified("ok")
                     .build();
+
             UserEntity userEntity = IPersonMapper.INSTANCT.po2entity(userPo);
         }
 
