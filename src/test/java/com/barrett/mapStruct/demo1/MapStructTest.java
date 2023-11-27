@@ -70,6 +70,7 @@ public class MapStructTest {
         final long mapstructEndTime = System.currentTimeMillis();
         System.out.println("BeanUtils use time=" + (springEndTime - springStartTime) / 1000 + "秒" +
                 "; Mapstruct use time=" + (mapstructEndTime - springEndTime) / 1000 + "秒");
+
         System.out.println("-----------testTime-----end------");
     }
 
