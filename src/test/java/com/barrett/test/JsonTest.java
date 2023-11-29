@@ -13,7 +13,6 @@ public class JsonTest {
 
     @Test
     public void parse(){
-
         List<JSONObject> list = (List<JSONObject>) JSONArray.parse(jsonstr);
 
         for (JSONObject obj : list) {
@@ -21,9 +20,8 @@ public class JsonTest {
             for (Object o : planList) {
                 JSONObject jo  = (JSONObject) o;
                 String name = jo.getString("name");
-
             }
         }
-        System.out.println(123);
+        System.out.println("结束-----");
     }
 }
