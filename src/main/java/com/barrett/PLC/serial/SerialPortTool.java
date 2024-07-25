@@ -20,6 +20,8 @@ import static com.barrett.PLC.tcp.HexUtil.listToByte;
  * d：数据位（datebits），SerialPort 支持 5,6,7,8
  * s：停止位（stopbits），SerialPort 支持 1,2,3
  * p：校验位 (parity)，SerialPort 支持 0,1,2,3,4
+ *
+ * @author created by barrett in 2020/11/6 15:48
  */
 public class SerialPortTool {
     private static final Logger logger = LoggerFactory.getLogger(SerialPortTool.class);//slf4j 日志记录器

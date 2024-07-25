@@ -313,6 +313,15 @@
             <version>1.4.1.Final</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- 视频处理 -->
+        <!-- https://mvnrepository.com/artifact/org.bytedeco/ffmpeg -->
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>ffmpeg</artifactId>
+            <version>6.0-1.5.9</version>
+        </dependency>
+
     </dependencies>
 
     <build>
