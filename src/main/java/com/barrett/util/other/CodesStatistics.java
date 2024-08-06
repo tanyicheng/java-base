@@ -100,7 +100,14 @@ public class CodesStatistics {
         //java.io.File类中的getName()方法：返回由此抽象路径名表示的文件或目录的名称。
         //java.lang.String类中的toLowerCase()方法：将所有在此字符 String使用默认语言环境的规则，以小写。
         //java.lang.String类中的endsWith()：测试此字符串是否以指定的后缀结尾。
-        return f.getName().toLowerCase().endsWith("." + suffix);
+        boolean flag=false;
+        for (String s : suffix.split(",")) {
+            if(f.getName().toLowerCase().endsWith("." + s)) {
+                flag = true;
+                break;
+            }
+        }
+        return flag;
     }
 
     /**
@@ -174,13 +181,15 @@ public class CodesStatistics {
 
 
     public final static String suffix = "js";
+//    public final static String suffix = "java,xml";
 
     public static void main(String[] args) throws IOException {
 //		Scanner sc = new Scanner(System.in);
 //		System.out.println("请输入需要查找代码的目录：");
 //		String s = sc.nextLine();
 
-        String s = "/Users/snipe/Documents/tan/git/project/FitnessPlan/app/src";
+        String s = "/Users/snipe/Documents/tan/git/project/FitnessPlan/fitness-app/src/";
+//        String s = "/Users/snipe/Documents/seraphim/git/erp20220914/";
 //		String s = "/Users/snipe/Documents/tan/git/study/activiti5-demo";
 
         File dir = new File(s);

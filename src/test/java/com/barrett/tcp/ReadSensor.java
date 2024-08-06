@@ -14,6 +14,8 @@ import java.util.regex.Pattern;
  */
 public class ReadSensor {
 
+    private static String ip = "172.16.8.20";
+
     public static void main(String[] args) {
         while (true) {
             read();
@@ -27,10 +29,11 @@ public class ReadSensor {
 
     /**
      * 每次读取都新建连接，若需要实时读取因修改为长链接读取
+     *
      * @author created by barrett in 2024/7/25 14:05
      */
     public static void read() {
-        try (Socket socket = new Socket("172.16.2.200", 2101)) {
+        try (Socket socket = new Socket(ip, 2101)) {
             // 向服务端发送数据
             PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
             writer.println("AT*ReadSensor:0");
@@ -59,7 +62,7 @@ public class ReadSensor {
     @Test
     public void start() {
         try {
-            Socket socket = new Socket("172.16.2.200", 2101);
+            Socket socket = new Socket(ip, 2101);
 
             new Thread(() -> {
                 send(socket);
@@ -70,7 +73,7 @@ public class ReadSensor {
             }).start();
 
 
-            Thread.sleep(20*1000); // 阻塞主线程
+            Thread.sleep(20 * 1000); // 阻塞主线程
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -109,11 +112,11 @@ public class ReadSensor {
     /**
      * 对返回结果解析
      * AT*ReadSensor
-     *
+     * <p>
      * Air pressure = 0.0HPa
      * Humidity = 56.1%
      * Temperature = 27.1C
-     *
+     * <p>
      * OK!
      */
     public static String extractValueAndSplit(String response) {
@@ -132,7 +135,7 @@ public class ReadSensor {
                 String number = numberMatcher.group(1);
                 String unit = numberMatcher.group(2);
                 System.out.println("数字: " + number + ", 单位: " + unit);
-                return number+"-"+unit;
+                return number + "-" + unit;
             } else {
                 System.out.println("无法拆分数字和单位");
             }
